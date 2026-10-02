@@ -1,0 +1,926 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>AMECC × BASE — Scope of Work & Tiến độ</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);
+  --bg:#eef3fa;--card:#ffffff;--ink:#0b1e3f;--ink2:#40557a;--ink3:#8394b0;--rule:#d3deee;--rule2:#e7eef8;--lane:#f6f9fe;
+  --brand:#1446a0;--brand2:#0b2d6b;--brandt:#e3ecfb;
+  --kd:#0369a1;--qlda:#1d4ed8;--tk:#4338ca;--mh:#0f766e;--hcns:#6d28d9;--kt:#0e7490;--sys:#475f86;
+  --s0:#9aa9c2;--s1:#38bdf8;--s2:#f97316;--s3:#16a34a;
+  --s0t:#eef2f8;--s1t:#e6f6fe;--s2t:#fff0e5;--s3t:#e6f6ec;--s4:#8b5cf6;--s4t:#f1ecfe;
+  --ai:#b45309;--warn:#c81e1e;--prop:#7c3aed;--hl:#fff8e6;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#0a1222;--card:#111c31;--ink:#e6edf8;--ink2:#a8b8d4;--ink3:#6e7f9e;--rule:#22324f;--rule2:#1a2742;--lane:#0e1829;
+  --brand:#5b8def;--brand2:#0f2350;--brandt:#16264a;
+  --kd:#38bdf8;--qlda:#60a5fa;--tk:#a5b4fc;--mh:#2dd4bf;--hcns:#c4b5fd;--kt:#22d3ee;--sys:#94a3c4;
+  --s0:#51607c;--s1:#38bdf8;--s2:#fb923c;--s3:#4ade80;
+  --s0t:#18233a;--s1t:#0f2a3d;--s2t:#2e1d10;--s3t:#12291b;--s4:#a78bfa;--s4t:#211a38;
+  --ai:#fbbf24;--warn:#f87171;--prop:#c4b5fd;--hl:#2a2515;}}
+:root[data-theme="dark"]{
+  --bg:#0a1222;--card:#111c31;--ink:#e6edf8;--ink2:#a8b8d4;--ink3:#6e7f9e;--rule:#22324f;--rule2:#1a2742;--lane:#0e1829;
+  --brand:#5b8def;--brand2:#0f2350;--brandt:#16264a;
+  --kd:#38bdf8;--qlda:#60a5fa;--tk:#a5b4fc;--mh:#2dd4bf;--hcns:#c4b5fd;--kt:#22d3ee;--sys:#94a3c4;
+  --s0:#51607c;--s1:#38bdf8;--s2:#fb923c;--s3:#4ade80;
+  --s0t:#18233a;--s1t:#0f2a3d;--s2t:#2e1d10;--s3t:#12291b;--s4:#a78bfa;--s4t:#211a38;
+  --ai:#fbbf24;--warn:#f87171;--prop:#c4b5fd;--hl:#2a2515;}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{background:var(--bg);color:var(--ink);font-family:'Be Vietnam Pro',system-ui,-apple-system,'Segoe UI',sans-serif;font-size:14px;line-height:1.5;-webkit-font-smoothing:antialiased}
+.mono{font-family:'JetBrains Mono',ui-monospace,Menlo,monospace}
+.wrap{max-width:1400px;margin:0 auto;padding:24px 20px 60px}
+
+/* header */
+.head{display:grid;grid-template-columns:1fr auto;background:var(--brand2);color:#fff;border-radius:12px;overflow:hidden}
+.head-main{padding:20px 24px}
+.head-main .k{font-family:'JetBrains Mono',monospace;font-size:12px;color:#9fbdf5}
+.head-main h1{font-size:25px;font-weight:700;letter-spacing:-.3px;line-height:1.2;margin-top:2px}
+.head-main p{color:#c8d8f5;margin-top:6px;font-size:13.5px;max-width:78ch}
+.head-meta{display:grid;min-width:250px;background:rgba(255,255,255,.06);border-left:1px solid rgba(255,255,255,.12)}
+.head-meta div{padding:8px 16px;border-bottom:1px solid rgba(255,255,255,.1);font-size:12px;color:#aac3ee;display:flex;justify-content:space-between;gap:12px;align-items:center}
+.head-meta div:last-child{border-bottom:0}
+.head-meta b{color:#fff;font-weight:600}
+@media(max-width:720px){.head{grid-template-columns:1fr}.head-meta{border-left:0;border-top:1px solid rgba(255,255,255,.12)}.head-main h1{font-size:21px}}
+.sync{font-size:11.5px;padding:7px 12px;border-radius:6px;margin-top:10px;background:var(--card);border:1px solid var(--rule);color:var(--ink2);display:flex;gap:8px;align-items:center}
+.sync i{width:8px;height:8px;border-radius:50%;background:var(--s0);display:inline-block}
+.sync.ok i{background:var(--s2)} .sync.ro i{background:var(--ai)}
+.tabs{display:flex;gap:6px;margin-top:16px;overflow-x:auto;padding-bottom:2px}
+.tab{appearance:none;border:1px solid var(--rule);background:var(--card);padding:9px 16px;font:inherit;font-size:14px;font-weight:600;color:var(--ink2);cursor:pointer;white-space:nowrap;border-radius:8px;display:flex;gap:8px;align-items:center}
+.tab .mono{font-size:12px;color:var(--ink3)}
+.tab .tp{font-family:'JetBrains Mono',monospace;font-size:11.5px;padding:0 7px;border-radius:8px;background:var(--brandt);color:var(--brand)}
+.tab.on{background:var(--brand);border-color:var(--brand);color:#fff}
+.tab.on .mono{color:#b9cffa}.tab.on .tp{background:rgba(255,255,255,.18);color:#fff}
+.panel{display:none;padding-top:16px}.panel.on{display:block}
+
+.bar{height:8px;border-radius:4px;background:var(--rule2);overflow:hidden;display:flex}
+.bar span{display:block;height:100%}
+.pct{font-family:'JetBrains Mono',monospace;font-weight:700}
+.box{background:var(--card);border:1px solid var(--rule);border-radius:10px;padding:14px 16px}
+.box h4{font-size:13.5px;font-weight:700;margin-bottom:10px;display:flex;justify-content:space-between;gap:8px}
+.box h4 small{font-weight:500;color:var(--ink3);font-size:12px}
+
+/* overview */
+.ov-top{display:grid;grid-template-columns:270px 1fr 1fr;gap:14px}
+@media(max-width:960px){.ov-top{grid-template-columns:1fr}}
+.big{background:var(--brand);color:#fff;border-radius:10px;padding:18px 20px;display:flex;flex-direction:column;justify-content:space-between;gap:14px}
+.big .l{font-size:13px;color:#cfe0ff}
+.big .v{font-family:'JetBrains Mono',monospace;font-size:58px;font-weight:700;line-height:1}
+.big .v small{font-size:24px}
+.big .bar{background:rgba(255,255,255,.2);width:100%;align-self:stretch} .big .bar span{background:#fff}
+.big .ratio{font-size:11.5px;color:#cfe0ff;display:flex;gap:6px;align-items:center;flex-wrap:wrap}
+.big input{width:46px;font:inherit;font-family:'JetBrains Mono',monospace;font-size:12px;padding:2px 4px;border-radius:4px;border:1px solid rgba(255,255,255,.35);background:transparent;color:#fff;text-align:right}
+.obj{background:var(--card);border:1px solid var(--rule);border-radius:10px;padding:16px 18px;cursor:pointer}
+.obj:hover{border-color:var(--brand)}
+.obj-h{display:flex;justify-content:space-between;align-items:baseline;gap:10px}
+.obj-h .n{font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--ink3)}
+.obj-h h3{font-size:15.5px;font-weight:700;margin-top:2px}
+.obj-h .pct{font-size:30px;color:var(--brand)}
+.obj>.bar{margin:10px 0 12px;height:10px}
+.grp{display:grid;grid-template-columns:1fr 90px 42px;gap:4px 10px;align-items:center;font-size:12.5px;padding:5px 0;border-top:1px solid var(--rule2)}
+.grp .gn{color:var(--ink2)} .grp .bar{height:6px} .grp .pct{font-size:12px;text-align:right}
+.grp.in{padding-left:16px}.grp.in .gn{font-size:12px}
+.ov-row{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:14px}
+@media(max-width:960px){.ov-row{grid-template-columns:1fr}}
+.dist{display:flex;gap:8px;flex-wrap:wrap}
+.dist div{flex:1;min-width:92px;border-radius:8px;padding:10px 12px;background:var(--t);border-left:3px solid var(--c)}
+.dist b{display:block;font-family:'JetBrains Mono',monospace;font-size:24px;line-height:1.1;color:var(--ink)}
+.dist span{font-size:11.5px;color:var(--ink2)}
+.mini{list-style:none;display:flex;flex-direction:column;gap:6px;max-height:300px;overflow:auto}
+.mini li{font-size:12.5px;display:flex;gap:8px;align-items:baseline;cursor:pointer}
+.mini li:hover{color:var(--brand)}
+.mini .id{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--ink3);min-width:52px}
+.mini .nt{color:var(--warn);font-size:11.5px;display:block}
+.rules{display:grid;grid-template-columns:repeat(5,1fr);gap:6px;font-size:12px;color:var(--ink2)}
+@media(max-width:600px){.rules{grid-template-columns:1fr 1fr}}
+.rules div{border-radius:6px;padding:6px 8px;background:var(--t);border-left:3px solid var(--c)}
+.rules b{font-family:'JetBrains Mono',monospace;color:var(--ink)}
+.btn{font:inherit;font-size:12.5px;font-weight:600;padding:7px 14px;border-radius:6px;border:1px solid var(--brand);background:var(--card);color:var(--brand);cursor:pointer}
+.btn:hover,.btn.pri{background:var(--brand);color:#fff}
+.dtag{display:inline-block;font-size:10.5px;font-weight:700;padding:1px 6px;border-radius:4px;color:#fff;white-space:nowrap}
+
+.legend{display:flex;flex-wrap:wrap;gap:8px 16px;font-size:12px;color:var(--ink2);padding:9px 14px;background:var(--card);border:1px solid var(--rule);border-radius:8px;margin-bottom:12px;align-items:center}
+.lg{display:inline-flex;align-items:center;gap:6px}
+.sw{width:10px;height:10px;border-radius:2px;display:inline-block}
+.lede{font-size:13px;color:var(--ink2);margin-bottom:12px;max-width:100ch}
+.lede b{color:var(--ink)} .lede a{color:var(--brand);cursor:pointer;text-decoration:underline}
+
+/* node card (shared) */
+.nd{appearance:none;font:inherit;text-align:left;color:var(--ink);width:100%;position:relative;z-index:3;display:block;background:var(--card);border:1px solid var(--rule);border-left:4px solid var(--sc);border-radius:7px;padding:7px 9px 8px;cursor:pointer;transition:box-shadow .12s,border-color .12s}
+.nd:hover{box-shadow:0 2px 10px rgba(20,70,160,.14);border-color:var(--brand);border-left-color:var(--sc)}
+.nd.ai{background:linear-gradient(0deg,rgba(251,191,36,.07),rgba(251,191,36,.07)),var(--card)}
+.nd-t{display:flex;justify-content:space-between;align-items:center;gap:6px}
+.nd-t .mono{font-size:10.5px;color:var(--ink3)}
+.ty{font-size:9.5px;font-weight:600;padding:0 6px;border-radius:8px;border:1px solid currentColor;white-space:nowrap}
+.ty.t-moi{color:var(--qlda)}.ty.t-toi{color:var(--kd)}.ty.t-hc{color:var(--prop)}.ty.t-ai{color:var(--ai)}.ty.t-lk{color:var(--ink)}.ty.t-du{color:var(--mh)}
+.nd-n{font-weight:600;font-size:12.5px;line-height:1.3;margin-top:2px}
+.nd-s{font-size:11px;color:var(--ink2);line-height:1.35;margin-top:2px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.nd-f{display:flex;justify-content:space-between;align-items:center;margin-top:6px;gap:6px}
+.chip{font-size:10.5px;font-weight:600;padding:1px 7px;border-radius:10px;background:var(--t);color:var(--ink);border:1px solid var(--c)}
+.nd-f .pct{font-size:11.5px}
+.nd .bar{height:3px;margin-top:4px}
+.fl{display:inline-block;font-size:9.5px;font-weight:700;padding:0 5px;border-radius:3px;margin-left:4px;vertical-align:1px;white-space:nowrap}
+.fl.x{color:var(--ai);border:1px solid var(--ai)}.fl.d{color:var(--prop);border:1px solid var(--prop)}.fl.b{color:var(--warn);border:1px solid var(--warn)}
+
+/* flow (part 1) */
+.fc-scroll{overflow-x:auto;border:1px solid var(--rule);border-radius:12px;background:var(--card);-webkit-overflow-scrolling:touch}
+.fc{position:relative;display:grid;grid-template-columns:76px repeat(4,186px) 168px;column-gap:70px;width:max-content;padding-right:12px}
+.fc:not(.det) .cell{padding:10px 10px 22px;gap:14px}
+.fc:not(.det) .stepc{padding:10px 6px 10px 14px}
+.lh{padding:12px 12px 10px;color:#fff;border-radius:0 0 10px 10px}
+.lh .n{font-size:14px;font-weight:700}
+.lh .p{font-size:11px;opacity:.85}
+.lh .r{display:flex;justify-content:space-between;align-items:center;margin-top:6px;gap:8px}
+.lh .r .pct{font-size:18px}
+.lh .r small{font-size:11px;opacity:.9}
+.lh .bar{background:rgba(255,255,255,.25);height:5px;margin-top:4px;width:100%}.lh .bar span{background:#fff}
+.stepc{padding:16px 8px 16px 16px;border-top:1px dashed var(--rule)}
+.stepc .sn{font-family:'JetBrains Mono',monospace;font-weight:700;font-size:13px;color:var(--brand)}
+.stepc .st{font-size:12px;color:var(--ink2);line-height:1.35;margin-top:2px}
+.cell{padding:16px 12px 34px;display:flex;flex-direction:column;gap:22px;border-top:1px dashed var(--rule);background:var(--lane)}
+.wires{position:absolute;left:0;top:0;pointer-events:none;z-index:2;overflow:visible}
+.w{fill:none;stroke-width:1.5;stroke-linejoin:round}
+.w-in{stroke:var(--ink3)} .w-ai{stroke:var(--ai);stroke-dasharray:5 4} .w-h{stroke:var(--brand);stroke-width:2.4}
+.mk-in{fill:var(--ink3)} .mk-ai{fill:var(--ai)} .mk-h{fill:var(--brand)}
+.hl{position:absolute;z-index:4;transform:translate(-50%,-50%);width:96px;appearance:none;font:inherit;text-align:center;background:var(--card);border:1.5px solid var(--brand);border-radius:8px;padding:5px 6px 6px;cursor:pointer;color:var(--ink);box-shadow:0 2px 8px rgba(20,70,160,.15)}
+.hl:hover{background:var(--brandt)}
+.hl .hb{display:inline-flex;width:18px;height:18px;border-radius:50%;background:var(--brand);color:#fff;font-size:10.5px;font-weight:700;align-items:center;justify-content:center;font-family:'JetBrains Mono',monospace}
+.hl .ht{display:block;font-size:10.5px;font-weight:600;line-height:1.25;margin:3px 0}
+.hl .chip{font-size:9.5px}
+
+/* part 2 tiers */
+.tiers{display:grid;grid-template-columns:150px minmax(0,1.25fr) 26px minmax(0,1fr) 26px minmax(0,1fr);align-items:stretch}
+.tth{background:var(--brand);color:#fff;border-radius:10px;padding:10px 14px;margin-bottom:10px}
+.tth .tn{font-family:'JetBrains Mono',monospace;font-size:11px;color:#b9cffa}
+.tth .tt{font-size:14.5px;font-weight:700;display:flex;justify-content:space-between;align-items:baseline;gap:8px}
+.tth .tt .pct{font-size:18px}
+.tth .ts{font-size:11.5px;color:#cfe0ff}
+.tth .bar{background:rgba(255,255,255,.22);height:5px;margin-top:6px;width:100%}.tth .bar span{background:#fff}
+.tarr{display:flex;align-items:center;justify-content:center;color:var(--brand);font-size:16px;font-weight:700}
+.tarr.r{border-top:1px solid var(--rule)}
+.drow{display:contents}
+.dl{padding:12px 10px 12px 12px;border-top:1px solid var(--rule);border-left:4px solid var(--c);background:var(--card)}
+.dl .dn{font-weight:700;font-size:14px;color:var(--c)}
+.dl .dp{font-size:11px;color:var(--ink3)}
+.dl .pct{font-size:22px;display:block;margin-top:6px}
+.dl .bar{height:5px;margin-top:3px}
+.dl small{font-size:11px;color:var(--ink3);display:block;margin-top:3px}
+.tc{padding:12px 10px;border-top:1px solid var(--rule);background:var(--lane);display:flex;flex-direction:column;gap:6px}
+.tc-h{display:flex;justify-content:space-between;align-items:center;font-size:11px;color:var(--ink3);font-weight:600}
+.tc-h .pct{color:var(--ink);font-size:11.5px}
+.gcap{font-size:10.5px;font-weight:700;color:var(--brand);margin-top:4px;display:flex;justify-content:space-between}
+.gcap span:last-child{font-family:'JetBrains Mono',monospace;color:var(--ink3)}
+.tc .none{font-size:11.5px;color:var(--ink3);font-style:italic;padding:6px 2px}
+.tc .nd{padding:6px 8px 7px}
+.tc .nd-s{-webkit-line-clamp:1}
+@media(max-width:900px){
+  .tiers{display:block}
+  .tiers>.tth,.tiers>.tarr,.tiers>.blank{display:none}
+  .drow{display:block;border:1px solid var(--rule);border-radius:10px;overflow:hidden;margin-bottom:12px;background:var(--card)}
+  .dl{border-top:0}
+  .tarr.r{display:none}
+  .tc::before{content:attr(data-t);font-size:11.5px;font-weight:700;color:var(--brand)}
+}
+
+/* editor modal */
+.ov{position:fixed;inset:0;background:rgba(8,20,45,.45);z-index:50;display:none;align-items:center;justify-content:center;padding:16px}
+.ov.on{display:flex}
+.ed{background:var(--card);border-radius:12px;max-width:520px;width:100%;max-height:calc(100% - 20px);overflow:auto;border-top:5px solid var(--c);box-shadow:0 20px 50px rgba(0,0,0,.3)}
+.ed-h{padding:16px 18px 10px}
+.ed-h .mono{font-size:11.5px;color:var(--ink3)}
+.ed-h h3{font-size:17px;line-height:1.3;margin-top:2px}
+.ed-h p{font-size:12.5px;color:var(--ink2);margin-top:4px}
+.ed-meta{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px;align-items:center}
+.ed-b{padding:6px 18px 16px;display:flex;flex-direction:column;gap:12px}
+.ed-b label{font-size:11.5px;font-weight:600;color:var(--ink3);display:block;margin-bottom:5px}
+.seg{display:grid;grid-template-columns:repeat(5,1fr);gap:5px}
+.seg button{font:inherit;font-size:12px;font-weight:600;padding:8px 4px;border-radius:7px;border:1.5px solid var(--rule);background:var(--card);color:var(--ink2);cursor:pointer;line-height:1.25}
+.seg button small{display:block;font-family:'JetBrains Mono',monospace;font-size:11px;opacity:.8}
+.seg button.on{border-color:var(--c);background:var(--t);color:var(--ink)}
+.ed-b input,.ed-b textarea{font:inherit;font-size:13px;padding:7px 10px;border:1px solid var(--rule);border-radius:6px;background:var(--card);color:var(--ink);width:100%}
+.ed-b textarea{min-height:64px;resize:vertical}
+.ed-b .sysn{font-size:12px;color:var(--warn)}
+.ed-f{display:flex;justify-content:space-between;gap:8px;padding:12px 18px;border-top:1px solid var(--rule);align-items:center;flex-wrap:wrap}
+.ed-f .hint{font-size:11.5px;color:var(--ink3)}
+.ro .seg button,.ro .ed-b input,.ro .ed-b textarea{pointer-events:none;opacity:.7}
+.foot{margin-top:24px;font-size:11.5px;color:var(--ink3);line-height:1.6}
+
+.nd{user-select:text}
+.nd-t .mono{white-space:nowrap}
+.nd:focus-visible{outline:2px solid var(--brand);outline-offset:2px}
+.nd.rem{border-style:dashed;border-left-style:solid;background:repeating-linear-gradient(135deg,var(--card) 0 7px,var(--rule2) 7px 8px)}
+.nd.exc{opacity:.45}
+.nd.cmp .nd-s{display:none}
+.nd-l{display:flex;gap:10px;margin-top:5px;flex-wrap:wrap}
+.nd-l a,.lk a{font-size:10.5px;font-weight:600;color:var(--brand);text-decoration:none;border-bottom:1px solid transparent}
+.nd-l a:hover,.lk a:hover{border-bottom-color:currentColor}
+.nd-l .src,.lk .src{font-size:10px;color:var(--ink3);font-family:'JetBrains Mono',monospace}
+.fl.r{color:var(--ink3);border:1px dashed var(--ink3)}
+.ty.t-bc{color:var(--s3)}.ty.t-dl{color:var(--mh)}.ty.t-md{color:var(--tk)}.ty.t-dwh{color:var(--sys)}
+.lk{display:flex;flex-wrap:wrap;gap:8px 14px;align-items:center;padding:8px 10px;background:var(--bg);border-radius:6px}
+.lk a{font-size:12.5px}
+.tgl{display:flex;gap:8px;align-items:center;font-size:12.5px;color:var(--ink2)}
+.tgl input{width:auto}
+
+.addb{appearance:none;font:inherit;font-size:11.5px;font-weight:600;color:var(--ink3);background:transparent;border:1px dashed var(--rule);border-radius:7px;padding:5px 8px;cursor:pointer;width:100%;position:relative;z-index:3}
+.addb:hover{color:var(--brand);border-color:var(--brand);background:var(--card)}
+.cell .addb{opacity:.55}.cell:hover .addb{opacity:1}
+.ro .addb,.ro [data-del],.ro [data-restore]{display:none}
+.btn.del{border-color:var(--warn);color:var(--warn)}.btn.del:hover{background:var(--warn);color:#fff}
+.btn.sm{font-size:11px;padding:2px 8px}
+.more summary{font-size:12px;font-weight:600;color:var(--brand);cursor:pointer;padding:2px 0}
+.cf{display:flex;flex-direction:column;gap:10px;margin-top:8px}
+.cf2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.ed-b select{font:inherit;font-size:13px;padding:7px 8px;border:1px solid var(--rule);border-radius:6px;background:var(--card);color:var(--ink);width:100%}
+
+.hl{width:70px!important;padding:4px 4px 5px!important}
+.hl .ht{font-size:10px!important;margin:2px 0 1px!important}
+.hl .hn{display:block;font-size:9px;color:var(--brand);font-weight:600}
+.lh.sup{background:var(--card);border:1.5px dashed var(--c);color:var(--c);border-top:0}
+.lh.sup .p{opacity:.8}
+.nd.stat{border-style:dashed;border-left-style:solid;cursor:default;background:var(--card)}
+.pf{font-weight:600;color:var(--brand)}
+.nd-s b.pf{font-weight:600}
+.nd.ref{border-style:dashed;border-left-style:solid;padding:5px 8px 6px;background:var(--card)}
+.nd.ref .nd-n{font-size:12px;font-weight:500}
+.mp{display:flex;flex-wrap:wrap;gap:3px;align-items:center;margin-top:5px;font-size:10.5px;color:var(--ink3)}
+.cc{font-family:'JetBrains Mono',monospace;font-size:10px;font-weight:700;padding:0 5px;border-radius:3px;border:1px solid var(--rule);color:var(--ink2);background:var(--bg);cursor:pointer}
+.cc.to{color:#fff;background:var(--brand);border-color:var(--brand)}
+.cc:hover{border-color:var(--brand)}
+.none2{font-size:11px;color:var(--ink3);font-style:italic}
+.sech{font-size:16px;font-weight:700;margin:22px 0 10px;display:flex;gap:10px;align-items:baseline;flex-wrap:wrap}
+.sech small{font-size:12px;color:var(--ink3);font-weight:500}
+.handg{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:12px}
+.hc{background:var(--card);border:1px solid var(--rule);border-top:3px solid var(--brand);border-radius:10px;padding:12px 14px;transition:box-shadow .3s}
+.hc.flash{box-shadow:0 0 0 3px var(--brand)}
+.hc-h{display:flex;gap:10px;align-items:flex-start}
+.hc .hb{flex-shrink:0;display:inline-flex;width:24px;height:24px;border-radius:50%;background:var(--brand);color:#fff;font-size:12px;font-weight:700;align-items:center;justify-content:center;font-family:'JetBrains Mono',monospace}
+.hc-t{font-weight:700;font-size:13.5px;line-height:1.3}
+.hc-r{font-size:11.5px;color:var(--ink2);margin-top:3px;line-height:1.6}
+.hc-via{font-size:11.5px;color:var(--ai);margin:8px 0 6px;padding:5px 8px;background:var(--hl);border-radius:5px}
+.hc-f{margin:0;padding-left:20px;display:flex;flex-direction:column;gap:2px}
+.hc-f li{font-size:12.5px;line-height:1.45}
+.hc-f li::marker{color:var(--brand);font-family:'JetBrains Mono',monospace;font-size:11px}
+.mxw{overflow-x:auto;border:1px solid var(--rule);border-radius:10px;background:var(--card)}
+table.mx{border-collapse:collapse;width:100%;min-width:1080px;font-size:12px}
+.mx th{text-align:left;font-size:11px;font-weight:600;color:#fff;background:var(--brand);padding:8px 10px;white-space:nowrap}
+.mx td{padding:8px 10px;border-bottom:1px solid var(--rule2);vertical-align:top}
+.mx tr:hover td{background:var(--bg)}
+.mx-r{cursor:pointer;min-width:190px}.mx-r b{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--ink3);font-weight:700}
+.mx-r .chip{display:inline-block;margin:4px 0 0 6px;font-size:10px}
+.mx-i{display:block;cursor:pointer;line-height:1.4;padding:1px 0}.mx-i:hover{color:var(--brand)}
+.mx-i b{font-family:'JetBrains Mono',monospace;font-size:10.5px;color:var(--ink3)}
+.mx-i .pf{font-size:11px}
+.fchip{display:inline-block;font-size:10.5px;border:1px solid var(--rule);border-radius:4px;padding:0 5px;margin:0 3px 3px 0;background:var(--bg)}
+
+.nd-ai{margin-top:5px;font-size:10.5px;font-weight:600;color:var(--ai);background:var(--hl);border-radius:4px;padding:2px 6px;line-height:1.4}
+
+.hc-st{appearance:none;font:inherit;background:none;border:0;padding:0;margin-top:5px;cursor:pointer;display:flex;gap:6px;align-items:center;font-size:11px;color:var(--brand);font-weight:600}
+.hl .chip{display:inline-block;margin:1px 0}
+
+.t2tabs{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:12px}
+.t2t{appearance:none;font:inherit;font-size:13px;font-weight:600;padding:7px 12px;border-radius:8px;border:1px solid var(--rule);background:var(--card);color:var(--ink2);cursor:pointer;display:flex;gap:8px;align-items:center;border-bottom:3px solid var(--c)}
+.t2t .tp{font-family:'JetBrains Mono',monospace;font-size:11px;padding:0 6px;border-radius:8px;background:var(--bg);color:var(--ink2)}
+.t2t.on{background:var(--c);color:#fff;border-color:var(--c)}.t2t.on .tp{background:rgba(255,255,255,.2);color:#fff}
+.dhead{display:flex;align-items:center;gap:16px;background:var(--card);border:1px solid var(--rule);border-left:5px solid var(--c);border-radius:10px;padding:10px 16px;margin-bottom:12px;flex-wrap:wrap}
+.dhead .dn{font-weight:700;font-size:16px;color:var(--c)}.dhead small{font-size:11.5px;color:var(--ink3)}.dhead .pct{font-size:24px}
+.pw{position:relative;background:var(--card);border:1px solid var(--rule);border-radius:12px;padding:14px}
+.pipes{position:absolute;left:0;top:0;z-index:1;pointer-events:none;overflow:visible}
+.band{position:relative;border:1px solid var(--rule);border-radius:10px;background:transparent}
+.band-h{display:flex;align-items:baseline;gap:10px;padding:8px 12px;background:var(--brand);color:#fff;border-radius:9px 9px 0 0;flex-wrap:wrap;position:relative;z-index:2}
+.band-h .bn{font-family:'JetBrains Mono',monospace;font-size:11px;color:#b9cffa}.band-h .bt{font-weight:700;font-size:14px}.band-h .bs{font-size:11.5px;color:#cfe0ff;flex:1}.band-h .bp{font-family:'JetBrains Mono',monospace;font-weight:700;font-size:16px}
+.band-r{display:flex;flex-wrap:wrap;gap:12px;padding:12px;align-items:flex-start}
+.band-r .bc{flex:1 1 180px;max-width:240px;display:flex;flex-direction:column;gap:3px}
+.band-r .addb{flex:0 0 120px;align-self:stretch;min-height:60px}
+.band-r .none{flex:1;padding:10px}
+.sg{font-size:10px;font-weight:700;color:var(--brand);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.bgap{height:56px;display:flex;align-items:center;justify-content:flex-end;padding-right:6px}
+.bgap span{font-size:11px;font-weight:600;color:var(--ink3);background:var(--card);padding:1px 8px;border-radius:10px;border:1px solid var(--rule);position:relative;z-index:2}
+.pp-body{fill:none;stroke:var(--brandt);stroke-width:6;stroke-linecap:round}
+.pp-flow{fill:none;stroke:var(--brand);stroke-width:2;stroke-dasharray:6 7;animation:flow 1.1s linear infinite}
+.pp-dir .pp-flow{stroke:var(--sys)}
+.pp-head{fill:var(--brand)}
+@keyframes flow{to{stroke-dashoffset:-13}}
+@media (prefers-reduced-motion:reduce){.pp-flow{animation:none}}
+.pw.hov .pp{opacity:.12}.pw.hov .pp.hot{opacity:1}.pw.hov .pp.hot .pp-body{stroke:var(--s1t)}.pw.hov .pp.hot .pp-flow{stroke-width:2.6}
+.pp{transition:opacity .15s}
+.man-b{stroke-width:9}
+.pw.hov .pp.man{opacity:.5}
+
+.grps{display:flex;flex-wrap:wrap;gap:10px;width:100%}
+.grpb{border:1px solid var(--rule);border-radius:8px;background:var(--bg);min-width:190px}
+.grpb-h{display:flex;justify-content:space-between;padding:5px 10px;font-size:11.5px;font-weight:700;color:var(--brand);border-bottom:1px solid var(--rule)}
+.grpb-h span:last-child{font-family:'JetBrains Mono',monospace;color:var(--ink2)}
+.grpb-r{display:flex;flex-wrap:wrap;gap:8px;padding:8px}
+.grpb-r .bc{flex:1 1 170px;max-width:240px}
+.band-r{padding:12px}
+.addh{margin-left:auto;appearance:none;font:inherit;font-size:11.5px;font-weight:600;color:#fff;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.35);border-radius:6px;padding:2px 9px;cursor:pointer}
+.addh:hover{background:rgba(255,255,255,.28)}
+.ro .addh{display:none}
+.band-h .bp{margin-left:6px}
+.bgap{height:40px;display:flex;justify-content:center;align-items:stretch;padding:0}
+.bgap i{display:block;width:4px;position:relative;background:repeating-linear-gradient(180deg,var(--brand) 0 6px,transparent 6px 12px);background-size:4px 12px;animation:pipe .8s linear infinite;border-radius:2px}
+.bgap i::after{content:'';position:absolute;left:50%;bottom:-2px;transform:translateX(-50%);border:7px solid transparent;border-top:8px solid var(--brand);border-bottom:0}
+@keyframes pipe{to{background-position:0 12px}}
+@media (prefers-reduced-motion:reduce){.bgap i{animation:none}}
+.dhead small{margin-left:auto}
+
+.shot{margin:-7px -9px 7px;border-bottom:1px solid var(--rule);border-radius:6px 6px 0 0;overflow:hidden;background:var(--bg);cursor:zoom-in;height:110px}
+.tc .shot,.bc .shot{height:110px}
+.shot img{width:100%;height:100%;object-fit:cover;object-position:top;display:block}
+.shotbox{display:flex;flex-direction:column;gap:8px}
+.shotbox>img{max-width:100%;max-height:220px;object-fit:contain;border:1px solid var(--rule);border-radius:6px;background:var(--bg);cursor:zoom-in;align-self:flex-start}
+.shot-empty{font-size:12px;color:var(--ink3);border:1px dashed var(--rule);border-radius:6px;padding:14px;text-align:center}
+.shot-act{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.shot-act .up{cursor:pointer;display:inline-block}
+.shot-hint{font-size:11.5px;color:var(--ink3)}
+.shot-st{font-size:11.5px;color:var(--brand);font-weight:600}
+.ro .shot-act{display:none}
+.cam{cursor:zoom-in;font-size:13px}
+.lb{position:fixed;inset:0;z-index:60;background:rgba(5,12,28,.82);display:none;align-items:center;justify-content:center;padding:20px}
+.lb.on{display:flex}
+.lb figure{margin:0;max-width:min(1400px,100%);max-height:100%;display:flex;flex-direction:column;gap:8px}
+.lb img{max-width:100%;max-height:calc(100vh - 110px);object-fit:contain;border-radius:8px;background:#fff;cursor:zoom-out}
+.lb figcaption{color:#fff;font-size:13px;display:flex;gap:10px;align-items:center;justify-content:space-between}
+.lb figcaption b{font-family:'JetBrains Mono',monospace;color:#b9cffa}
+
+.rules div{display:flex;flex-direction:column;gap:2px}
+.rules .rd{font-size:11px;color:var(--ink2);line-height:1.35}
+.stdesc{font-size:11.5px;color:var(--ink2);margin-top:6px;min-height:1em}
+
+.stw{overflow-x:auto;margin-top:6px}
+.stt{border-collapse:collapse;width:100%;min-width:760px;font-size:12.5px;margin-bottom:12px}
+.stt th{text-align:center;font-size:11px;font-weight:600;color:var(--ink2);padding:6px 8px;border-bottom:1.5px solid var(--brand);white-space:nowrap}
+.stt th:first-child{text-align:left}
+.stt th .sw{margin-right:4px;vertical-align:-1px}
+.stt td{padding:6px 8px;border-bottom:1px solid var(--rule2)}
+.st-l{white-space:nowrap}
+.st-n{text-align:center;font-family:'JetBrains Mono',monospace;font-weight:700;background:var(--t);color:var(--ink)}
+.st-n.z{color:var(--ink3);font-weight:400;background:transparent}
+.st-n.tot{background:var(--bg)}
+.st-p{display:flex;align-items:center;gap:8px;min-width:150px}.st-p div{flex:1}.st-p b{font-family:'JetBrains Mono',monospace;min-width:38px;text-align:right}
+.stt tr.sum td{border-top:1.5px solid var(--rule);font-weight:700}
+.ov-row.one{grid-template-columns:1fr}
+
+.nd.fn{padding:6px 8px 6px}
+.fn-t{display:flex;justify-content:space-between;align-items:center;line-height:1.2}
+.fn-t .mono{font-size:10px;color:var(--ink3);padding-top:2px;white-space:nowrap}
+.fn-n{font-weight:600;font-size:12px;line-height:1.3;margin-top:1px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.fn-ai{font-size:10px;font-weight:700;color:var(--ai);background:var(--hl);border-radius:4px;padding:0 5px}
+.fn-b{display:flex;justify-content:flex-end;align-items:center;gap:6px;margin-top:5px}
+.fn-pf{font-size:10px;font-weight:600;color:var(--brand);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.fn-b .chip{font-size:10px;padding:0 6px;white-space:nowrap}
+.lh .n{display:flex;justify-content:space-between;align-items:center;gap:6px}
+.lh-add{appearance:none;font:inherit;font-size:14px;line-height:1;width:22px;height:22px;border-radius:6px;border:1px solid rgba(255,255,255,.45);background:rgba(255,255,255,.12);color:#fff;cursor:pointer}
+.lh-add:hover{background:rgba(255,255,255,.3)}
+.lh-add.sup{border-color:var(--c);color:var(--c);background:transparent}
+.ro .lh-add{display:none}
+#leg1 .btn.sm{font-size:11.5px;padding:3px 10px}
+</style>
+</head>
+<body>
+<div class="wrap" id="app">
+  <header class="head">
+    <div class="head-main">
+      <div class="k">SCOPE OF WORK · 2026</div>
+      <h1>Tiến độ dự án AMECC × BASE</h1>
+    </div>
+    <div class="head-meta">
+      <div><span>Khách hàng</span><b>AMECC</b></div>
+            <div><span>Hạng mục</span><b class="mono" id="mCount">—</b></div>
+      <div><span>Có output</span><b class="mono" id="mOut">—</b></div>
+      <div><span>Cập nhật</span><b class="mono" id="mUpd">—</b></div>
+    </div>
+  </header>
+  <div class="sync" id="sync"><i></i><span id="syncTxt">Đang kết nối dữ liệu chung…</span></div>
+
+  <nav class="tabs">
+    <button class="tab on" data-p="p0"><span class="mono">00</span>Tổng quan<span class="tp" id="tp0"></span></button>
+    <button class="tab" data-p="p1"><span class="mono">01</span>Liên kết quy trình<span class="tp" id="tp1"></span></button>
+    <button class="tab" data-p="p2"><span class="mono">02</span>Báo cáo quản trị<span class="tp" id="tp2"></span></button>
+  </nav>
+
+  <section class="panel on" id="p0"></section>
+
+  <section class="panel" id="p1">
+    <p class="lede">KD → QLDA → Thiết kế → Mua hàng. Kế hoạch tháng & báo cáo hàng ngày QLDA ở <a data-go="p2">trang 02</a>.</p>
+    <div class="legend" id="leg1"></div>
+    <div class="fc-scroll"><div class="fc" id="fc"></div></div>
+    <h2 class="sech">Trường dữ liệu liên kết ①②③④</h2>
+    <div class="handg" id="handg"></div>
+  </section>
+
+  <section class="panel" id="p2">
+    
+    <div class="legend" id="leg2"></div>
+    <div class="t2tabs" id="t2tabs" role="tablist"></div>
+    <div id="t2body"></div>
+  </section>
+
+  <p class="foot">Quy đổi: 0 · 40 · 60 · 80 · 100%.</p>
+</div>
+
+<div class="lb" id="lb"></div>
+<div class="ov" id="ov"><div class="ed" id="ed" role="dialog" aria-modal="true"></div></div>
+
+<script>
+const STS=[['Chưa bắt đầu',0,'var(--s0)','var(--s0t)'],['Đang thực hiện',40,'var(--s1)','var(--s1t)'],['Kiểm thử / UAT',80,'var(--s2)','var(--s2t)'],['Hoàn thành',100,'var(--s3)','var(--s3t)'],['Chờ vận hành',60,'var(--s4)','var(--s4t)']];
+/* thứ tự hiển thị theo % (mã 4 = Chờ vận hành, thêm sau để không đổi dữ liệu đã lưu) */
+const ORD=[0,1,4,2,3],STO=ORD.map(i=>[i,STS[i]]);
+/* giải thích trạng thái */
+const STDESC={4:'Đã xây khung quy trình mới, chờ dữ liệu vận hành thực tế',2:'Liên kết và quy trình tối ưu trên Base đã kiểm tra, chờ AMECC vận hành'};
+const TYPES={moi:'QT setup mới',toi:'QT tối ưu / hiệu chỉnh',ai:'AI Agent',lk:'Liên kết liên phòng ban',bc:'Báo cáo',dl:'Dữ liệu / vận hành',md:'Master data',dwh:'Nhà kho dữ liệu'};
+const TSHORT={moi:'Setup mới',toi:'Tối ưu',ai:'AI Agent',lk:'Liên kết',bc:'Báo cáo',dl:'Dữ liệu',md:'Master data',dwh:'Nhà kho'};
+const DEPT={kd:['KD','Kinh doanh','var(--kd)'],qlda:['QLDA','Ban QLDA','var(--qlda)'],tk:['TK','TT Thiết kế (TTTV)','var(--tk)'],mh:['MH','Ban Mua hàng','var(--mh)'],hcns:['HCNS','Ban HCNS','var(--hcns)'],sys:['CHUNG','Nhà kho chung','var(--sys)']};
+const L={HR:'https://nguyennghia421.github.io/AMECC---B-o-c-o-nh-n-s-/',TK:'https://haiyenbase.github.io/amecc_phong_thiet_ke/',
+ MAT:'https://docs.google.com/spreadsheets/d/1TykAvsHf0XIGn-W7o3vjpqi-OgMMKya-Vh0Aq2GgCNc/edit?gid=0#gid=0',
+ LOG:'https://docs.google.com/spreadsheets/d/1TykAvsHf0XIGn-W7o3vjpqi-OgMMKya-Vh0Aq2GgCNc/edit?gid=927975611#gid=927975611',
+ BQ:'https://console.cloud.google.com/bigquery?project=kh-amecc'};
+const B='BLĐ 22/09';
+/* item: [id, tên, phạm vi, loại, trạng thái, cờ(r=chưa có output · x=cần xác nhận), ghi chú, căn cứ, link kết quả, link hướng dẫn] */
+const P1={
+ kd:[
+  ['KD-01','Sales Management','Tìm kiếm KH · Báo giá · SOW','moi',3,'','',B],
+  ['KD-02','Contract Review','Soạn thảo · Review · Ký kết hợp đồng','toi',3,'','',B],
+ ],
+ qlda:[
+  ['QL-01','QT phê duyệt Work Order','Điều chỉnh luồng tạo lập + xử lý điều chỉnh Work Order','toi',3,'','',B+' · Output #17'],
+  ['QL-03','QT ghi nhận tiền về dự án','Theo từng đợt thanh toán của HĐ','moi',3,'','',B],
+ ],
+ tk:[
+  ['TK-01','QT nhận việc từ Ban DA','Nhận Work Order từ QLDA','toi',3,'','',B],
+  ['TK-02','QT quản lý Item','Kết nối quy trình liên phòng ban','toi',3,'','',B+' · Output #26','https://drive.google.com/file/d/152WK5A9T5zxn-u9PPduBQBDfFi5hBneB/view'],
+  ['TK-03','QT phân việc KCTB · TKSX · KCT','Phân việc từ các bộ phận thiết kế','toi',3,'','',B],
+  ['TK-04','QT xử lý MPR','Lập · duyệt · chuyển MPR sang Mua hàng','moi',3,'','',B],
+  ['TK-06','QT đánh giá nhân sự','Nối TT Thiết kế với Ban HCNS · kết quả đánh giá sang HRM','lk',3,'','','Output #25','https://docs.google.com/spreadsheets/d/13_WSWeYVB5c-kXSUao2ip6vZpzO2Y5p_KSQv7Rcqr5s/edit?gid=0#gid=0','https://drive.google.com/file/d/1p_TadS2iwqe6vDEMDi0blDmQoUxI0gD6/view'],
+ ],
+ mh:[
+  ['MH-01','QT nhận MPR từ Thiết kế','Kế thừa danh mục vật tư từ MPR','moi',3,'','',B],
+  ['MH-03','QT logistics','Vận chuyển · nhập kho','moi',3,'','',B],
+  ['MH-06','QT xuất hàng','Xuất vật tư theo dự án','moi',3,'','',B],
+ ]};
+/* part 2: [..., tier, sub] tier: 1|2|3 ; sub for tier1: A quy trình · B quá khứ · C master · D nguồn/biểu mẫu */
+const P2={
+ kd:[
+  ['IN-01','Dữ liệu quá khứ Kinh doanh','Dữ liệu cũ phòng KD','dl',3,'','Bảng output ghi dòng này dưới mục Nhân sự','Output #38','','',1,'B'],
+  ['DW-10','Kết nối dữ liệu cũ KD về nhà kho','BigQuery','dwh',3,'','','Output #38',L.BQ,'',2,'B'],
+  ['BC-01','Sales Report','Báo cáo kinh doanh','bc',3,'','','Output #14','https://script.google.com/macros/s/AKfycbxTygWJTWVjzBnivY-rZnZBfh8b9ybXOZrS2Fwz8_EWhLRfvawZznA0Uif7CF_Et9IT/exec','https://docs.google.com/document/d/1W5B6lISErYXqXwbAmUe545limLHADec7YSKpe5gT4-A/edit?usp=sharing',3],
+  ['DW-06-KD','Base Service','Quy trình thực hiện · kết nối về nhà kho','dwh',3,'','','Output #32',L.BQ,'',2],
+ ],
+ qlda:[
+  ['IN-02','QT lập & phê duyệt kế hoạch tháng','Xử lý dữ liệu kế hoạch của Ban QLDA','moi',3,'','',B+' · Output #18','','',1,'A'],
+  ['IN-03','Dữ liệu báo cáo khối lượng hàng ngày','Hệ thống báo cáo hàng ngày — sản lượng','moi',3,'','',B+' · Output #19','','',1,'A'],
+  ['IN-04','Dữ liệu báo cáo nhân lực hàng ngày','Hệ thống báo cáo hàng ngày — nhân lực','moi',3,'','',B+' · Output #20','','',1,'A'],
+  ['IN-05','Dữ liệu quá khứ Ban QLDA (đến 08/2026)','Dữ liệu cũ Ban QLDA','dl',3,'','','Output #35','','',1,'B'],
+  ['DW-11','Đồng bộ dữ liệu cũ QLDA về nhà kho','BigQuery · đến 08/2026','dwh',3,'','','Output #35',L.BQ,'',2,'B'],
+  ['BC-04','Báo cáo tiến độ','Tiến độ dự án','bc',3,'','Dữ liệu khách gửi: Ban QLDA','Output #15','','',3],
+  ['BC-05','Báo cáo chi phí dự án','Chi phí theo dự án','bc',3,'','','Output #16','','',3],
+  ['DW-06-QL','Base Service','Quy trình thực hiện · kết nối về nhà kho','dwh',3,'','','Output #32',L.BQ,'',2],
+  ['DW-07-QL','Base WeWork','Quản lý công việc · kết nối về nhà kho','dwh',3,'','','Output #33',L.BQ,'',2],
+  ['DW-08-QL','Base Table','Danh mục các dự án, thông tin · kết nối về nhà kho','dwh',3,'','','Output #34',L.BQ,'',2],
+ ],
+ tk:[
+  ['IN-06','Danh mục dữ liệu thiết kế','Master data TTTV','md',3,'','','Output #27','https://docs.google.com/spreadsheets/d/1Pjb4q3wZqcYWg8__nsSLWaWOTtlB1I2L4vtRC9oq1fc/edit?gid=0#gid=0','',1,'C'],
+  ['IN-07','File tổng hợp dữ liệu thiết kế','Nguồn dữ liệu TTTV','dl',3,'','','Output #28','','',1,'D'],
+  ['DW-01','Đồng bộ danh mục dữ liệu TTTV về nhà kho','BigQuery · dataset phong_thiet_ke','dwh',3,'','','Output #36',L.BQ,'',2],
+  ['BC-07','Báo cáo thực hiện tháng','','bc',3,'','','Output #21',L.TK,'',3],
+  ['BC-08','Báo cáo chấm công nhân sự','','bc',3,'','','Output #22',L.TK,'',3],
+  ['BC-09','Báo cáo kế hoạch làm việc','','bc',3,'','','Output #23',L.TK,'',3],
+  ['BC-10','Báo cáo workload + hiệu suất nhân sự','','bc',3,'','','Output #24',L.TK,'',3],
+  ['DW-03-TK','Base Checkin','Dữ liệu chấm công nhân sự · kết nối về nhà kho','dwh',3,'','','Output #29',L.BQ,'',2],
+  ['DW-04-TK','Base HRM','Thông tin nhân sự · kết nối về nhà kho','dwh',3,'','','Output #30',L.BQ,'',2],
+  ['DW-05-TK','Base Schedule','Dữ liệu công ca làm việc · kết nối về nhà kho','dwh',3,'','','Output #31',L.BQ,'',2],
+ ],
+ mh:[
+  ['IN-08','Dữ liệu MCL','Material Control List — vận hành','dl',3,'','','Output #12','https://drive.google.com/drive/u/1/folders/1ScC4Om0L7BxcNAET1xst9H6KmyrWX5pQ','',1,'A'],
+  ['IN-09','Detail Information','Dữ liệu chi tiết vận hành Mua hàng','dl',3,'','','Output #13','https://drive.google.com/drive/u/1/folders/1cyeMVUMlrh7ayldf6ed4gTI36p3nbfq1','',1,'A'],
+  ['DW-02','Kết nối dữ liệu MCL về nhà kho','BigQuery','dwh',3,'','','Output #37',L.BQ,'',2],
+  ['BC-11','Overview Material','','bc',3,'','','Output #8',L.MAT,'',3],
+  ['BC-12','Material Status','','bc',3,'','','Output #9',L.MAT,'',3],
+  ['BC-13','Logistic','','bc',3,'','','Output #10',L.LOG,'',3],
+  ['BC-14','Báo cáo dashboard','','bc',3,'','','Output #11','https://du-yt01.github.io/Phong_mua_sam/','',3],
+ ],
+ hcns:[
+  ['IN-10','QT Cấp mã nhân sự mới','QT tối ưu','toi',3,'','',B,'','',1,'A'],
+  ['IN-11','QT lập Kế hoạch đào tạo','QT setup mới','moi',3,'','',B,'','',1,'A'],
+  ['IN-12','QT phê duyệt Kết quả đào tạo','QT setup mới','moi',3,'','',B,'','',1,'A'],
+  ['IN-15','Dữ liệu Digital Book công ty','WeWork · Digital Book','dl',3,'','','','','',1,'D'],
+  ['IN-14','Nguồn dữ liệu nhân sự','Nguồn dữ liệu HCNS','dl',1,'x','Bảng output chưa có link kết quả','Output #7','','',1,'D'],
+  ['BC-15','Báo cáo số lượng nhân sự','','bc',3,'','','Output #1',L.HR,'',3],
+  ['BC-16','Báo cáo tuân thủ (Check-in)','','bc',3,'','','Output #2',L.HR,'',3],
+  ['BC-17','Báo cáo Digital Book (WeWork)','','bc',3,'','','Output #3',L.HR,'',3],
+  ['BC-18','Báo cáo ra vào cổng','','bc',3,'','','Output #4',L.HR,'',3],
+  ['BC-19','Báo cáo số lượng tài khoản truy cập từng app','','bc',3,'','','Output #5','https://account.base.vn/account/report','',3],
+  ['BC-20','Báo cáo đánh giá KPI nhân sự','','bc',3,'','','Output #6','','',3],
+  ['DW-03-HC','Base Checkin','Dữ liệu chấm công nhân sự · kết nối về nhà kho','dwh',3,'','','Output #29',L.BQ,'',2],
+  ['DW-04-HC','Base HRM','Thông tin nhân sự · kết nối về nhà kho','dwh',3,'','','Output #30',L.BQ,'',2],
+  ['DW-05-HC','Base Schedule','Dữ liệu công ca làm việc · kết nối về nhà kho','dwh',3,'','','Output #31',L.BQ,'',2],
+  ['DW-06-HC','Base Service','Quy trình thực hiện · kết nối về nhà kho','dwh',3,'','','Output #32',L.BQ,'',2],
+  ['DW-07-HC','Base WeWork','Quản lý công việc · kết nối về nhà kho','dwh',3,'','','Output #33',L.BQ,'',2],
+ ],
+};
+const LANES=['kd','qlda','tk','mh','hcns'];
+const STEPS=[['B1','Tiếp cận & ký hợp đồng'],['B2','Tiếp nhận & Work Order'],['B3','Thiết kế & MPR'],['B4','Mua hàng & logistics'],['B5','Liên kết nhân sự (TTTV ↔ HCNS)']];
+const FLOW={kd:[['KD-01','KD-02'],[],[],[],[]],qlda:[[],['QL-01','QL-03'],[],[],[]],
+  tk:[[],[],['TK-01','TK-02','TK-03','TK-04'],[],['TK-06']],mh:[[],[],[],['MH-01','MH-03','MH-06'],[]],hcns:[[],[],[],[],[]]};
+/* AI Agent = ghi chú trong quy trình */
+const AINOTE={'KD-01':['AI đọc báo cáo'],'KD-02':['AI đọc revised contract'],'QL-01':['AI bóc tách file Work Order'],'TK-04':['AI đọc file MPR'],'MH-03':['AI scan Bill','AI đọc tờ khai hải quan']};
+const STATIC={hcns:{4:{id:'HCREF',t:'Tiếp nhận kết quả đánh giá',pf:'Base Service',sc:'HCNS tiếp nhận kết quả đánh giá nhân sự TTTV'}}};
+const HAND=[
+ {id:'LK-01',n:1,f:'KD-02',t:'QL-01',lbl:'Dữ liệu HĐ',from:'kd',to:'qlda',title:'Hợp đồng → Tiếp nhận & Work Order',via:'Kế thừa tự động khi HĐ ký · AI đọc revised contract trả trường',
+  fields:['Số hợp đồng','Mã dự án (Project Code)','Tên khách hàng','Giá trị hợp đồng','Timeline / tiến độ cam kết','Điều khoản & các đợt thanh toán','Scope of Work đã xác nhận']},
+ {id:'LK-02',n:2,f:'QL-01',t:'TK-01',lbl:'Work Order',from:'qlda',to:'tk',title:'Work Order → Thiết kế nhận việc',via:'AI bóc tách file Work Order → tạo Item thiết kế',
+  fields:['Mã Work Order','Mã dự án','Danh mục đầu mục công việc','Loại việc (3D / 2D / APL / CP / SF)','Deadline từng đầu mục','Dự toán / khối lượng cam kết']},
+ {id:'LK-03',n:3,f:'TK-04',t:'MH-01',lbl:'MPR',from:'tk',to:'mh',title:'MPR → Mua hàng nhận MPR',via:'Kế thừa trực tiếp qua quy trình · AI đọc file MPR',
+  fields:['Mã MPR','Mã dự án · Mã Work Order','Danh mục vật tư · Mã vật tư','Số lượng · Đơn vị tính','Tiêu chuẩn kỹ thuật (spec)','Ngày cần vật tư tại công trường']},
+ {id:'LK-04',n:4,f:'TK-06',t:'HCREF',lbl:'Đánh giá NS',from:'tk',to:'hcns',title:'Đánh giá nhân sự TTTV ↔ HCNS',via:'QT đánh giá nhân sự trên Base Service → HCNS tiếp nhận trên Base Service (Output #25)',
+  fields:['Mã nhân sự · Họ tên · Bộ phận','Kỳ đánh giá (tháng / thử việc)','Khối lượng thực hiện · giá trị quy đổi (từ Quản lý Item)','Điểm / hệ số đánh giá','Kết luận (đạt / không đạt thử việc)','Lương thực lĩnh (HCNS → TTTV, đối chiếu)']},
+];
+/* nền tảng vận hành của từng quy trình */
+const PF={'KD-01':'Base Service','KD-02':'Base Service','KD-03':'AI Agent','KD-04':'AI Agent','QL-01':'Base Service','QL-02':'AI Agent','QL-03':'Base Service',
+ 'TK-01':'Base Workflow','TK-02':'Base Workflow','TK-03':'Base Workflow','TK-04':'Base Service','TK-05':'AI Agent','TK-06':'Base Service · HRM',
+ 'MH-01':'Base Service','MH-03':'Base Service','MH-04':'AI Agent','MH-05':'AI Agent','MH-06':'Base Service',
+ 'IN-02':'Base Service','IN-03':'Base WeWork','IN-04':'Base WeWork','IN-10':'Base HRM','IN-11':'Base Service','IN-12':'Base Service','IN-08':'Google Drive','IN-09':'Google Drive'};
+/* báo cáo ← quy trình vận hành / dữ liệu nguồn */
+const SRCMAP={
+ 'BC-01':['KD-01','KD-02','IN-01','DW-06-KD','DW-10'],
+ 'BC-04':['QL-01','IN-02','IN-03','IN-04','IN-05','DW-06-QL','DW-07-QL','DW-08-QL','DW-11'],
+ 'BC-05':['QL-01','QL-03','IN-05','DW-06-QL','DW-08-QL','DW-11'],
+ 'BC-07':['TK-01','TK-02','IN-06','IN-07','DW-01'],
+ 'BC-08':['DW-03-TK','DW-04-TK','DW-05-TK'],
+ 'BC-09':['TK-02','TK-03','IN-06','DW-01'],
+ 'BC-10':['TK-02','TK-03','TK-06','IN-07','DW-01','DW-04-TK'],
+ 'BC-11':['TK-04','MH-01','IN-08','DW-02'],
+ 'BC-12':['MH-01','MH-03','IN-08','IN-09','DW-02'],
+ 'BC-13':['MH-03','MH-06','IN-09'],
+ 'BC-14':['IN-08','IN-09','DW-02'],
+ 'BC-15':['IN-10','IN-14','DW-04-HC'],
+ 'BC-16':['IN-14','DW-03-HC','DW-05-HC'],
+ 'BC-17':['IN-15','DW-07-HC'],
+ 'BC-18':['DW-06-HC'],
+ 'BC-19':['DW-04-HC'],
+ 'BC-20':['TK-06','IN-11','IN-12','DW-04-HC'],
+};
+/* trường chính của báo cáo */
+const RF={
+ 'BC-01':['Khách hàng','Số HĐ','Giá trị','Ngày ký','Tháng'],
+ 'BC-04':['Mã DA','KL thực tế vs kế hoạch','% hoàn thành','Nhanh / chậm · lũy kế','Nhân lực'],
+ 'BC-05':['Mã DA','Dự toán','Chi phí thực','% biên','Tiền về lũy kế'],
+ 'BC-07':['Tháng','Nhân sự','KL thực hiện','KL kế hoạch','% đạt','Loại việc'],
+ 'BC-08':['Ngày','Nhân sự','Giờ vào / ra','Ca làm','Tuân thủ (%)'],
+ 'BC-09':['Nhân sự','Item','Loại việc','Deadline','Bộ phận'],
+ 'BC-10':['Nhân sự','Workload','Giá trị thực hiện','Hệ số hiệu suất'],
+ 'BC-11':['Mã VT','SL cần','SL đặt','SL về','SL thiếu','NCC','Mã DA'],
+ 'BC-12':['Mã VT','Status','% hoàn thành','Delay reason','ETA','NCC'],
+ 'BC-13':['Số Bill','NCC','Ngày cam kết','Ngày thực tế','Cảng đến','Tờ khai HQ','Mã DA'],
+ 'BC-14':['MCL','PO status','Hàng về kho','Hàng chờ nhập'],
+ 'BC-15':['Tháng','Phòng ban','Tổng NS','Vào','Ra','Headcount cuối kỳ'],
+ 'BC-16':['Ngày','Nhân sự','Giờ vào / ra','Tuân thủ (%)','Vắng không lý do'],
+ 'BC-20':['Nhân sự','Kỳ','Điểm KPI','Kết quả đào tạo','Xếp loại'],
+};
+const T2ROWS=['kd','qlda','tk','mh','hcns'];
+const TIERS=[{k:1,n:'Tầng 1',t:'Số hóa dữ liệu',s:''},{k:2,n:'Tầng 2',t:'Nhà kho dữ liệu',s:''},{k:3,n:'Tầng 3',t:'Báo cáo',s:''}];
+const SUBS={A:'Quy trình vận hành',B:'Dữ liệu quá khứ',C:'Danh mục (master data)',D:'Nguồn dữ liệu'};
+const SUBS2={A:'Dữ liệu vận hành',B:'Dữ liệu quá khứ',C:'Danh mục (master data)',D:'Nguồn dữ liệu'};
+const subsOf=tier=>tier===2?SUBS2:SUBS;
+const EMPTY2={kd:'Dùng kho chung (Base Service · Table)',qlda:'Dùng kho chung (Base Service · WeWork · Table)',hcns:'Dùng kho chung (Base HRM · Checkin · Schedule)'};
+
+/* ============ STATE ============ */
+const BASE=[],BIDX={};let ITEMS=[],IDX={},CUSTOM=[];
+const mk=(a,part,d)=>{const o={id:a[0],code:a[0],t:a[1],sc:a[2],ty:a[3],st0:a[4],fl:a[5]||'',sn:a[6]||'',src:a[7]||'',url:a[8]||'',guide:a[9]||'',tier:a[10]||0,sub:a[11]||'',part,d};BASE.push(o);BIDX[o.id]=o;};
+Object.entries(P1).forEach(([d,l])=>l.forEach(a=>mk(a,1,d)));
+Object.entries(P2).forEach(([d,l])=>l.forEach(a=>mk(a,2,d)));
+/* liên kết ①②③④ là hạng mục tính vào Mục 01 */
+HAND.forEach(hd=>{mk([hd.id,'Liên kết '+hd.n+' · '+hd.title,hd.via,'lk',2,'','',hd.n===4?'Output #25':'Liên kết quy trình'],1,hd.from);BIDX[hd.id].hand=hd.n;});
+/* toàn bộ quy trình & báo cáo đang ở giai đoạn kiểm thử */
+BASE.forEach(o=>{if(['moi','toi','ai','lk','bc'].includes(o.ty)&&o.st0===3)o.st0=2;});
+BASE.forEach(o=>{if(o.tier===2&&!o.sub)o.sub=o.id==='DW-01'?'C':'A';});
+/* quy trình setup mới → chờ vận hành */
+BASE.forEach(o=>{if(o.ty==='moi')o.st0=4;});
+let OV={},CFG={p1:50,p2:50},DB=null,READONLY=false,MODE='local';
+function rebuild(){ITEMS=[];IDX={};
+  BASE.forEach(b=>{const v=OV[b.id]||{};if(v.del)return;const o=Object.assign({},b,{t:v.t??b.t,sc:v.sc??b.sc,ty:v.ty??b.ty,url:v.url??b.url,custom:false});ITEMS.push(o);IDX[o.id]=o;});
+  CUSTOM.slice().sort((a,b)=>(a.created||'').localeCompare(b.created||'')).forEach(c=>{const o={id:c.id,code:c.code||'MỚI',t:c.t,sc:c.sc||'',ty:c.ty||'moi',st0:0,fl:'',sn:'',src:'Thêm mới',url:c.url||'',guide:'',tier:c.tier||0,sub:c.sub||'',part:c.part,d:c.d,step:c.step??0,custom:true};ITEMS.push(o);IDX[o.id]=o;});}
+const flowIds=(l,ri)=>FLOW[l][ri].filter(id=>IDX[id]).concat(ITEMS.filter(o=>o.custom&&o.part===1&&o.d===l&&o.step===ri).map(o=>o.id));
+const PFX={kd:'KD',qlda:'QL',tk:'TK',mh:'MH',hcns:'HC'},TPFX={1:'IN',2:'DW',3:'BC'};
+function nextCode(pfx){let n=0;[...BASE,...CUSTOM].forEach(o=>{const m=String(o.code||o.id).match(new RegExp('^'+pfx+'-(\\d+)$'));if(m)n=Math.max(n,+m[1]);});return pfx+'-'+String(n+1).padStart(2,'0');}
+const cur=o=>{const v=OV[o.id]||{};return{st:v.st??o.st0,w:v.w??1,note:v.note??'',ex:!!v.ex,conf:v.st!==undefined,at:v.at||null,img:v.img||null,imgData:v.imgData||null};};
+const shotSrc=c=>c.img?'/_blob/'+c.img:(c.imgData||null);
+function agg(l){let w=0,s=0;l.forEach(o=>{const c=cur(o);if(c.ex)return;w+=c.w;s+=c.w*STS[c.st][1];});return w?s/w:0;}
+const inScope=l=>l.filter(o=>!cur(o).ex);
+const fmt=p=>Math.round(p)+'%';
+function refsOf(d){const reps=ITEMS.filter(o=>o.part===2&&o.d===d&&o.tier===3);return [...new Set(reps.flatMap(r=>SRCMAP[r.id]||[]))].filter(id=>IDX[id]&&IDX[id].part===1).map(id=>IDX[id]);}
+/* Mục 02 tính cả quy trình vận hành (Mục 01) cấp dữ liệu cho báo cáo — nằm ở Tầng 1 · nhóm A */
+const m2=d=>ITEMS.filter(o=>o.part===2&&o.d===d).concat(refsOf(d));
+const m2t1=d=>ITEMS.filter(o=>o.part===2&&o.d===d&&o.tier===1).concat(refsOf(d));
+const partPct=n=>n===2?agg(T2ROWS.flatMap(m2)):agg(ITEMS.filter(o=>o.part===1));
+const overall=()=>{const a=(CFG.p1+CFG.p2)||1;return(partPct(1)*CFG.p1+partPct(2)*CFG.p2)/a;};
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+function pbar(p,col){return `<div class="bar"><span style="width:${p}%;background:${col||'var(--brand)'}"></span></div>`;}
+function sbar(l){l=inScope(l);const n=l.length||1,c=[0,0,0,0,0];l.forEach(o=>c[cur(o).st]++);return `<div class="bar">${[3,2,4,1].map(i=>`<span style="width:${c[i]/n*100}%;background:${STS[i][2]}"></span>`).join('')}</div>`;}
+const doneTxt=l=>{l=inScope(l);return `${l.filter(o=>cur(o).st===3).length}/${l.length} hoàn thành`;};
+function flags(o){const c=cur(o);return (o.fl.includes('r')&&!c.ex&&c.st<3?'<span class="fl r">chưa có output</span>':'')+(o.fl.includes('x')&&!c.conf?'<span class="fl x" title="Trạng thái giả định — cần xác nhận">?</span>':'')+(c.ex?'<span class="fl r">ngoài phạm vi</span>':'')+(o.custom?'<span class="fl d">mới thêm</span>':'');}
+const links=o=>(o.url||o.guide||o.src)?`<div class="nd-l">${o.url?`<a href="${esc(o.url)}" target="_blank" rel="noopener">↗ Kết quả</a>`:''}${o.guide?`<a href="${esc(o.guide)}" target="_blank" rel="noopener">↗ Hướng dẫn</a>`:''}${o.src?`<span class="src">${esc(o.src)}</span>`:''}</div>`:'';
+function tgtOf(id){return Object.keys(SRCMAP).filter(b=>SRCMAP[b].includes(id)&&IDX[b]);}
+const codeChips=(ids,cls)=>ids.filter(i=>IDX[i]).map(i=>`<span class="cc ${cls||''}" data-open="${i}" title="${esc(IDX[i].t)}">${esc(IDX[i].code)}</span>`).join('');
+function card(o,extra){const c=cur(o),S=STS[c.st];const cls=['nd',o.ty==='ai'?'ai cmp':'',o.fl.includes('r')&&c.st<3?'rem':'',c.ex?'exc':''].join(' ');
+  const sh=shotSrc(c);
+  return `<div class="${cls}" role="button" tabindex="0" data-open="${o.id}" id="n-${o.id}" style="--sc:${S[2]}">${sh?`<div class="shot" data-shot="${o.id}" title="Xem ảnh"><img src="${esc(sh)}" alt="Ảnh chụp ${esc(o.t)}" loading="lazy"></div>`:''}<div class="nd-t"><span class="mono">${esc(o.code)}</span><span class="ty t-${o.ty}" title="${TYPES[o.ty]}">${TSHORT[o.ty]}</span></div><div class="nd-n">${esc(o.t)}${flags(o)}</div>${(PF[o.id]||o.sc)?`<div class="nd-s">${PF[o.id]&&o.ty!=='ai'?`<b class="pf">${PF[o.id]}</b> · `:''}${esc(o.sc)}</div>`:''}<div class="nd-f"><span class="chip" style="--c:${S[2]};--t:${S[3]}">${S[0]}</span><span class="pct">${c.ex?'—':S[1]+'%'}</span></div>${pbar(c.ex?0:S[1],S[2])}${aiLine(o)}${extra||''}${links(o)}</div>`;}
+const aiLine=o=>AINOTE[o.id]?`<div class="nd-ai">🤖 ${AINOTE[o.id].map(esc).join(' · ')}</div>`:'';
+function refCard(o){const c=cur(o),S=STS[c.st],tg=tgtOf(o.id);
+  return `<div class="nd ref" role="button" tabindex="0" data-open="${o.id}" id="n-r-${o.id}" style="--sc:${S[2]}"><div class="nd-t"><span class="mono">${esc(o.code)}</span><span class="ty t-lk">từ Mục 01</span></div><div class="nd-n">${PF[o.id]&&o.ty!=='ai'?`<span class="pf">${PF[o.id]}</span> · `:''}${esc(o.t)}</div><div class="nd-f"><span class="chip" style="--c:${S[2]};--t:${S[3]}">${S[0]}</span><span class="pct">${S[1]}%</span></div>${pbar(S[1],S[2])}${aiLine(o)}<div class="mp">→ ${codeChips(tg,'to')}</div></div>`;}
+const legendStatus=()=>'<b style="color:var(--ink)">Trạng thái</b>'+STO.map(([i,s])=>`<span class="lg"${STDESC[i]?` title="${STDESC[i]}"`:''}><i class="sw" style="background:${s[2]}"></i>${s[0]} · ${s[1]}%</span>`).join('');
+
+/* ============ RENDER ============ */
+function renderAll(){rebuild();renderOverview();renderFlow();renderTiers();renderMeta();}
+function renderMeta(){
+  const sc=inScope(ITEMS);
+  mCount.textContent=sc.length;mOut.textContent=ITEMS.filter(o=>/Output|BLĐ/.test(o.src)).length;
+  const ts=Object.values(OV).map(v=>v.at).filter(Boolean).sort().pop();
+  mUpd.textContent=ts?new Date(ts).toLocaleString('vi-VN',{day:'2-digit',month:'2-digit',year:'numeric',hour:'2-digit',minute:'2-digit'}):'22/09/2026';
+  tp0.textContent=fmt(overall());tp1.textContent=fmt(partPct(1));tp2.textContent=fmt(partPct(2));
+}
+function stTable(h,rows){
+  const cnt=l=>{const c=[0,0,0,0,0];inScope(l).forEach(o=>c[cur(o).st]++);return c;};
+  const all=rows.flatMap(r=>r[1]);const tr=(lbl,l,cls)=>{const c=cnt(l),n=inScope(l).length,p=agg(l);
+    return `<tr class="${cls||''}"><td class="st-l">${lbl}</td>${ORD.map(i=>`<td class="st-n${c[i]?'':' z'}"${c[i]?` style="--c:${STS[i][2]};--t:${STS[i][3]}"`:''}>${c[i]||'–'}</td>`).join('')}<td class="st-n tot">${n}</td><td class="st-p"><div>${pbar(p,p>=100?'var(--s3)':'var(--brand)')}</div><b>${fmt(p)}</b></td></tr>`;};
+  return `<div class="stw"><table class="stt"><thead><tr><th>${h}</th>${ORD.map(i=>`<th title="${STDESC[i]||''}"><i class="sw" style="background:${STS[i][2]}"></i>${STS[i][0]}</th>`).join('')}<th>Tổng</th><th>Tỷ lệ</th></tr></thead><tbody>${rows.map(r=>tr(r[0],r[1])).join('')}${tr('<b>Tổng</b>',all,'sum')}</tbody></table></div>`;}
+function renderOverview(){
+  const sc=inScope(ITEMS);const cnt=[0,0,0,0,0];sc.forEach(o=>cnt[cur(o).st]++);
+  const unconf=ITEMS.filter(o=>o.fl.includes('x')&&!cur(o).conf);
+  const g=(lbl,l,col,cls)=>`<div class="grp ${cls||''}"><span class="gn">${lbl}</span>${pbar(agg(l),col)}<span class="pct">${fmt(agg(l))}</span></div>`;
+  const dt=d=>`<span class="dtag" style="background:${DEPT[d][2]}">${DEPT[d][0]}</span> ${DEPT[d][1]}`;
+  const p1=LANES.filter(d=>ITEMS.some(o=>o.part===1&&o.d===d&&!o.hand)).map(d=>g(dt(d),ITEMS.filter(o=>o.part===1&&o.d===d&&!o.hand),DEPT[d][2])).join('')+g('Liên kết liên phòng ban ①②③④',ITEMS.filter(o=>o.hand),'var(--brand)');
+  const t1=T2ROWS.flatMap(m2t1);const inA=o=>o.part===1||o.sub==='A';
+  const p2=g('<b>Tầng 1</b> · Số hóa dữ liệu',t1)+Object.keys(SUBS).map(k=>g('↳ '+SUBS[k],t1.filter(o=>k==='A'?inA(o):o.sub===k&&o.part===2),'var(--s1)','in')).join('')+g('<b>Tầng 2</b> · DWH',ITEMS.filter(o=>o.tier===2))+g('<b>Tầng 3</b> · Báo cáo',ITEMS.filter(o=>o.tier===3));
+  const ai=ITEMS.filter(o=>o.ty==='ai'), bc=ITEMS.filter(o=>o.ty==='bc');
+  p0.innerHTML=`<div class="ov-top">
+    <div class="big"><div><div class="l">Toàn dự án</div><div class="v">${Math.round(overall())}<small>%</small></div></div>${pbar(overall(),'#fff')}
+      <div class="ratio">Tỷ trọng mục tiêu: 01 <input id="r1" type="number" min="0" max="100" value="${CFG.p1}">% · 02 <input id="r2" type="number" min="0" max="100" value="${CFG.p2}">%</div></div>
+    <div class="obj" data-go="p1"><div class="obj-h"><div><div class="n">Mục tiêu 01</div><h3>Liên kết quy trình các phòng ban</h3></div><span class="pct">${fmt(partPct(1))}</span></div>${sbar(ITEMS.filter(o=>o.part===1))}${p1}</div>
+    <div class="obj" data-go="p2"><div class="obj-h"><div><div class="n">Mục tiêu 02</div><h3>Hệ thống báo cáo quản trị</h3></div><span class="pct">${fmt(partPct(2))}</span></div>${sbar(T2ROWS.flatMap(m2))}${p2}</div>
+  </div>
+  <div class="ov-row one">
+    <div class="box"><h4>Phân bổ trạng thái <small>${sc.length} mục</small></h4>
+      <div class="dist">${STO.map(([i,s])=>`<div style="--c:${s[2]};--t:${s[3]}"><b>${cnt[i]}</b><span>${s[0]}</span></div>`).join('')}</div>
+      ${unconf.length?`<h4 style="margin-top:16px">Cần xác nhận <small>${unconf.length} mục</small></h4><ul class="mini">${unconf.map(o=>`<li data-open="${o.id}"><span class="id">${esc(o.code)}</span><span>${esc(o.t)}<span class="nt">${esc(o.sn)}</span></span></li>`).join('')}</ul>`:''}
+      ${(()=>{const dl_=BASE.filter(b=>(OV[b.id]||{}).del);return dl_.length?`<h4 style="margin-top:16px">Đã xóa <small>${dl_.length} mục · có thể khôi phục</small></h4><ul class="mini">${dl_.map(b=>`<li style="cursor:default"><span class="id">${b.id}</span><span style="flex:1">${esc((OV[b.id]||{}).t||b.t)}</span><button class="btn sm" data-restore="${b.id}">Khôi phục</button></li>`).join('')}</ul>`:''})()}
+    </div>
+  </div>
+  <div class="box" style="margin-top:14px"><h4>Chi tiết trạng thái <small>số hạng mục · tỷ lệ hoàn thành</small></h4>
+    ${stTable('Phòng ban',T2ROWS.map(d=>[dt(d),ITEMS.filter(o=>o.d===d)]).filter(r=>r[1].length))}
+    ${stTable('Loại',['toi','moi','lk','bc','dl','md','dwh','ai','hc','du'].map(k=>[`<span class="ty t-${k}">${TYPES[k]}</span>`,ITEMS.filter(o=>o.ty===k)]).filter(r=>r[1].length))}
+    <div style="margin-top:4px;display:flex;justify-content:space-between;gap:12px;align-items:center;flex-wrap:wrap"><span style="font-size:11.5px;color:var(--ink3)">Dòng Tổng tính bình quân theo hạng mục (${fmt(agg(ITEMS))}); % toàn dự án (${fmt(overall())}) tính theo tỷ trọng hai mục tiêu.</span><span style="display:flex;gap:8px"><button class="btn pri" id="exph">Xuất HTML (kèm ảnh)</button><button class="btn" id="exp">Xuất CSV</button></span></div>
+  </div>
+  <div class="box" style="margin-top:14px"><h4>Trạng thái &amp; cách tính</h4>
+    <div class="rules">${STO.map(([i,s])=>`<div style="--c:${s[2]};--t:${s[3]}"><span><b>${s[1]}%</b> · ${s[0]}</span>${STDESC[i]?`<span class="rd">${STDESC[i]}</span>`:''}</div>`).join('')}</div>
+    <p style="font-size:12px;color:var(--ink2);margin-top:8px">% = Σ(trọng số × % trạng thái) ÷ Σ trọng số.</p></div>`;
+  ['r1','r2'].forEach(k=>{const el=document.getElementById(k);el.onclick=e=>e.stopPropagation();el.onchange=()=>{CFG[k==='r1'?'p1':'p2']=Math.max(0,Math.min(100,+el.value||0));saveCfg();renderAll();};});
+  exp.onclick=exportCSV;exph.onclick=exportHTML;
+}
+let FLOWDET=false;
+function fcard(o){if(FLOWDET)return card(o);const c=cur(o),S=STS[c.st];
+  return `<div class="nd fn${c.ex?' exc':''}" role="button" tabindex="0" data-open="${o.id}" id="n-${o.id}" style="--sc:${S[2]}" title="${esc(o.t)}${AINOTE[o.id]?' · 🤖 '+AINOTE[o.id].join(', '):''}">
+  <div class="fn-t"><span class="mono">${esc(o.code)}</span>${AINOTE[o.id]?'<span class="fn-ai" title="'+esc(AINOTE[o.id].join(', '))+'">🤖 AI</span>':''}</div><div class="fn-n">${esc(o.t)}</div>
+  <div class="fn-b"><span class="chip" style="--c:${S[2]};--t:${S[3]}">${S[0]} · ${S[1]}%</span></div></div>`;}
+function renderFlow(){
+  leg1.innerHTML=legendStatus()+`<span style="width:1px;height:16px;background:var(--rule)"></span><span class="lg"><svg width="30" height="8"><line x1="0" y1="4" x2="30" y2="4" style="stroke:var(--brand);stroke-width:2.4"/></svg>Liên kết ①②③④</span><span class="lg"><span class="nd-ai" style="margin:0;padding:1px 6px">🤖</span>AI Agent</span><span style="flex:1"></span><button class="btn sm" id="fdet">${FLOWDET?'Thu gọn':'Xem chi tiết thẻ'}</button>`;
+  let h='<div></div>';
+  LANES.forEach(l=>{const D=DEPT[l],li=ITEMS.filter(o=>o.part===1&&o.d===l&&!o.hand),p=agg(li);
+    const addStep=Math.max(0,STEPS.findIndex((s,ri)=>flowIds(l,ri).length||(STATIC[l]||{})[ri]));
+    h+=li.length?`<div class="lh" style="background:${D[2]}"><div class="n">${D[1]}<button class="lh-add" title="Thêm mục" data-add='${JSON.stringify({part:1,d:l,step:addStep})}'>＋</button></div><div class="r"><span class="pct">${fmt(p)}</span><small>${doneTxt(li)}</small></div>${pbar(p,'#fff')}</div>`
+      :`<div class="lh sup" style="--c:${D[2]}"><div class="n">${D[1]}<button class="lh-add sup" title="Thêm mục" data-add='${JSON.stringify({part:1,d:l,step:addStep})}'>＋</button></div><div class="p">Phòng ban liên kết</div></div>`;});
+  STEPS.forEach((s,ri)=>{h+=`<div class="stepc"><div class="sn">${s[0]}</div><div class="st">${s[1]}</div></div>`;
+    LANES.forEach(l=>{const st=(STATIC[l]||{})[ri];
+      h+=`<div class="cell">${st?`<div class="nd stat" id="n-${st.id}" style="--sc:${DEPT[l][2]}"><div class="nd-t"><span class="mono">${DEPT[l][0]}</span><span class="ty t-lk">đầu nhận</span></div><div class="nd-n">${esc(st.t)}</div><div class="nd-s"><b class="pf">${st.pf}</b> · ${esc(st.sc)}</div></div>`:''}${flowIds(l,ri).map(id=>fcard(IDX[id])).join('')}</div>`;});});
+  h+='<svg class="wires" id="wires"></svg>';fc.innerHTML=h;fc.classList.toggle('det',FLOWDET);
+  const fd=document.getElementById('fdet');if(fd)fd.onclick=()=>{FLOWDET=!FLOWDET;renderFlow();};
+  handg.innerHTML=HAND.map(hd=>{const A=IDX[hd.f],B=IDX[hd.t],L=IDX[hd.id];const S=L?STS[cur(L).st]:null;return `<div class="hc" id="hc-${hd.n}"${S?` style="border-top-color:${S[2]}"`:''}><div class="hc-h"><span class="hb">${hd.n}</span><div style="flex:1"><div class="hc-t">${hd.title}</div>${S?`<button class="hc-st" data-open="${L.id}"><span class="chip" style="--c:${S[2]};--t:${S[3]}">${S[0]} · ${S[1]}%</span> <span>Cập nhật</span></button>`:''}<div class="hc-r"><span class="dtag" style="background:${DEPT[hd.from][2]}">${DEPT[hd.from][0]}</span> ${A?esc(A.t):''} <b>→</b> <span class="dtag" style="background:${DEPT[hd.to][2]}">${DEPT[hd.to][0]}</span> ${B?esc(B.t):esc(STATIC.hcns[4].t)}</div></div></div>
+    <div class="hc-via">${hd.via}</div><ol class="hc-f">${hd.fields.map(f=>`<li>${f}</li>`).join('')}</ol></div>`;}).join('');
+  requestAnimationFrame(drawWires);
+}
+function drawWires(){
+  const svg=document.getElementById('wires');if(!svg||!fc.offsetParent)return;
+  fc.querySelectorAll('.hl').forEach(e=>e.remove());
+  const C=fc.getBoundingClientRect();svg.setAttribute('width',fc.scrollWidth);svg.setAttribute('height',fc.scrollHeight);
+  const R=id=>{const e=document.getElementById('n-'+id);if(!e)return null;const r=e.getBoundingClientRect();const x=r.left-C.left,y=r.top-C.top;return{x,y,r:x+r.width,b:y+r.height,cx:x+r.width/2,cy:y+Math.min(r.height/2,30)};};
+  let out=`<defs>${['in','ai','h'].map(k=>`<marker id="mk-${k}" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="${k==='h'?6:7}" markerHeight="${k==='h'?6:7}" orient="auto"><path class="mk-${k}" d="M0,1 L10,5 L0,9 z"/></marker>`).join('')}</defs>`;
+  LANES.forEach(l=>{const seq=STEPS.flatMap((s,ri)=>flowIds(l,ri));for(let i=0;i<seq.length-1;i++){if(seq[i+1]==='TK-06')continue;const A=R(seq[i]),Bn=R(seq[i+1]);const k=IDX[seq[i+1]].ty==='ai'?'ai':'in';
+    out+=`<polyline class="w w-${k}" points="${A.cx},${A.b} ${A.cx},${Bn.y-1}" marker-end="url(#mk-${k})"/>`;}});
+  const labels=[];
+  HAND.forEach(hd=>{const A=R(hd.f),Bn=R(hd.t);if(!A||!Bn)return;
+    const gx=hd.n===4?Bn.x-36:(A.r+Bn.x)/2;
+    out+=`<polyline class="w w-h" points="${A.r},${A.cy} ${gx},${A.cy} ${gx},${Bn.cy} ${Bn.x-1},${Bn.cy}" marker-end="url(#mk-h)"/>`;
+    labels.push([hd.n===4?(A.r+gx)/2:gx,hd.n===4?A.cy:(A.cy+Bn.cy)/2,hd]);});
+  svg.innerHTML=out;
+  labels.forEach(([x,y,hd])=>{const o=IDX[hd.id];const d=document.createElement('button');d.className='hl';d.style.left=x+'px';d.style.top=y+'px';
+    let chip='';if(o){const S=STS[cur(o).st];d.dataset.open=o.id;d.style.borderColor=S[2];chip=`<span class="chip" style="--c:${S[2]};--t:${S[3]};font-size:9px;padding:0 5px">${S[1]}%</span>`;}else d.dataset.hand=hd.n;
+    d.innerHTML=`<span class="hb">${hd.n}</span><span class="ht">${hd.lbl}</span>${chip}<span class="hn" data-hand="${hd.n}">${hd.fields.length} trường ↓</span>`;fc.appendChild(d);});
+}
+let T2SEL='kd';
+function matrixHTML(depts){
+  const nm=id=>IDX[id]?`<span class="mx-i" data-open="${id}"><b>${esc(IDX[id].code)}</b> ${PF[id]&&IDX[id].ty!=='ai'?`<span class="pf">${PF[id]}</span> · `:''}${esc(IDX[id].t)}</span>`:'';
+  const rows=depts.flatMap(d=>ITEMS.filter(o=>o.part===2&&o.d===d&&o.tier===3)).map(r=>{const s=(SRCMAP[r.id]||[]).filter(i=>IDX[i]);
+    const qt=s.filter(i=>IDX[i].part===1||(IDX[i].tier===1&&IDX[i].sub==='A')),dl=s.filter(i=>IDX[i].tier===1&&IDX[i].sub!=='A'),dw=s.filter(i=>IDX[i].tier===2);const c=cur(r);
+    return `<tr><td><span class="dtag" style="background:${DEPT[r.d][2]}">${DEPT[r.d][0]}</span></td><td class="mx-r" data-open="${r.id}"><b>${esc(r.code)}</b> ${esc(r.t)}${shotSrc(c)?` <span class="cam" data-shot="${r.id}" title="Xem ảnh">📷</span>`:''}<span class="chip" style="--c:${STS[c.st][2]};--t:${STS[c.st][3]}">${STS[c.st][0]}</span></td><td>${qt.map(nm).join('')||'<span class="none2">—</span>'}</td><td>${dl.map(nm).join('')||'<span class="none2">—</span>'}</td><td>${dw.map(nm).join('')||'<span class="none2">—</span>'}</td><td>${(RF[r.id]||[]).map(f=>`<span class="fchip">${f}</span>`).join('')||'<span class="none2">chưa chốt</span>'}</td></tr>`;}).join('');
+  return `<div class="mxw"><table class="mx"><thead><tr><th></th><th>Báo cáo</th><th>Quy trình vận hành</th><th>Dữ liệu khác</th><th>Nhà kho</th><th>Trường chính</th></tr></thead><tbody>${rows||'<tr><td colspan="6" class="none2">Chưa có báo cáo</td></tr>'}</tbody></table></div>`;
+}
+function deptData(d){
+  const all=ITEMS.filter(o=>o.part===2&&o.d===d);const reps=all.filter(o=>o.tier===3);
+  const refs=[...new Set(reps.flatMap(r=>SRCMAP[r.id]||[]))].filter(id=>IDX[id]&&IDX[id].part===1);
+  const E=new Map();const add=(a,b,k)=>{const key=a+'>'+b;if(!E.has(key))E.set(key,{a,b,k});};
+  reps.forEach(r=>{const s=(SRCMAP[r.id]||[]).filter(i=>IDX[i]);const t2=s.filter(i=>IDX[i].tier===2),t1=s.filter(i=>IDX[i].tier!==2);
+    if(t2.length){t1.forEach(x=>t2.forEach(w=>add(x,w,'up')));t2.forEach(w=>add(w,r.id,'dn'));} else t1.forEach(x=>add(x,r.id,'dir'));});
+  return {all,reps,refs,edges:[...E.values()]};
+}
+function renderTiers(){
+  leg2.innerHTML=legendStatus();
+  t2tabs.innerHTML=T2ROWS.map(d=>{const l=m2(d);return `<button class="t2t${T2SEL===d?' on':''}" data-t2="${d}" style="--c:${DEPT[d][2]}"><span>${DEPT[d][1]}</span><span class="tp">${l.length?fmt(agg(l)):'—'}</span></button>`;}).join('')
+    +`<button class="t2t${T2SEL==='mx'?' on':''}" data-t2="mx" style="--c:var(--brand)"><span>Tổng hợp</span></button>`;
+  if(T2SEL==='mx'){t2body.innerHTML=matrixHTML(T2ROWS);return;}
+  const d=T2SEL,D=DEPT[d],{all,refs}=deptData(d);
+  const band=(T,inner,l)=>`<section class="band"><div class="band-h"><span class="bn">${T.n}</span><span class="bt">${T.t}</span><span class="bp">${l.length?fmt(agg(l)):'—'}</span><button class="addh" data-add='${JSON.stringify({part:2,d,tier:T.k})}'>＋ Thêm</button></div><div class="band-r">${inner}</div></section>`;
+  const t1=all.filter(o=>o.tier===1),t2=all.filter(o=>o.tier===2),t3=all.filter(o=>o.tier===3);const refO=refs.map(id=>IDX[id]),t1all=t1.concat(refO),allD=all.concat(refO);
+  const grpHTML=(list,S,rsA)=>Object.keys(S).map(k=>{const items=list.filter(o=>(o.sub||'A')===k);const rs=k==='A'?rsA:[];const n=items.length+rs.length;if(!n)return '';
+    return `<div class="grpb" style="flex:${n} 1 ${Math.min(n,4)*180}px"><div class="grpb-h"><span>${k} · ${S[k]}</span><span>${fmt(agg(items.concat(rs.map(id=>IDX[id]))))}</span></div><div class="grpb-r">${rs.map(id=>`<div class="bc">${refCard(IDX[id])}</div>`).join('')}${items.map(o=>`<div class="bc">${card(o)}</div>`).join('')}</div></div>`;}).join('');
+  const groups=grpHTML(t1,SUBS,refs);
+  const b2=t2.length?`<div class="grps">${grpHTML(t2,SUBS2,[])}</div>`:`<div class="none">Không có</div>`;
+  const b3=t3.map(o=>`<div class="bc">${card(o,(SRCMAP[o.id]||[]).length?`<div class="mp">← ${codeChips(SRCMAP[o.id])}</div>`:'')}</div>`).join('')||`<div class="none">Chưa có</div>`;
+  t2body.innerHTML=`<div class="dhead" style="--c:${D[2]}"><div class="dn">${D[1]}</div><span class="pct">${fmt(agg(allD))}</span><div style="flex:1;max-width:320px">${sbar(allD)}</div><small>${doneTxt(allD)}</small></div>
+   <div class="pw" id="pw">${band(TIERS[0],`<div class="grps">${groups||'<div class="none">Không có</div>'}</div>`,t1all)}<div class="bgap"><i></i></div>${band(TIERS[1],b2,t2)}<div class="bgap"><i></i></div>${band(TIERS[2],b3,t3)}</div>
+   <h2 class="sech">Quy trình → báo cáo</h2>${matrixHTML([d])}`;
+  requestAnimationFrame(drawPipes);
+}
+function drawPipes(){}
+/* ============ EDITOR ============ */
+let EDIT=null;
+function openEd(id){const o=IDX[id];if(!o)return;const c=cur(o),D=DEPT[o.d];EDIT={id,st:c.st};
+  const where=o.part===1?'Mục tiêu 01 · Liên kết quy trình':'Mục tiêu 02 · '+TIERS[o.tier-1].n+' · '+TIERS[o.tier-1].t+(o.sub?' · '+subsOf(o.tier)[o.sub]:'');
+  ed.style.setProperty('--c',STS[c.st][2]);
+  ed.innerHTML=`<div class="ed-h"><div class="mono">${esc(o.code)} · ${where}</div><h3>${esc(o.t)}</h3>${o.sc?`<p>${esc(o.sc)}</p>`:''}
+    <div class="ed-meta"><span class="dtag" style="background:${D[2]}">${D[0]}</span><span class="ty t-${o.ty}">${TYPES[o.ty]}</span>${flags(o)}</div></div>
+    <div class="ed-b">
+    ${(o.url||o.guide||o.src)?`<div><label>Căn cứ &amp; kết quả</label><div class="lk">${o.src?`<span class="src">${esc(o.src)}</span>`:''}${o.url?`<a href="${esc(o.url)}" target="_blank" rel="noopener">↗ Mở link kết quả</a>`:''}${o.guide?`<a href="${esc(o.guide)}" target="_blank" rel="noopener">↗ Link hướng dẫn</a>`:''}${!o.url&&o.src.includes('Output')?'<span class="src">bảng output có ghi "Link" nhưng không kèm địa chỉ</span>':''}</div></div>`:''}
+    <div><label>Trạng thái</label><div class="seg">${STO.map(([i,s])=>`<button data-s="${i}" class="${i===c.st?'on':''}" style="--c:${s[2]};--t:${s[3]}"${STDESC[i]?` title="${STDESC[i]}"`:''}>${s[0]}<small>${s[1]}%</small></button>`).join('')}</div><div class="stdesc" id="stdesc">${STDESC[c.st]||''}</div></div>
+    ${AINOTE[o.id]?`<div><label>AI Agent trong quy trình</label>${aiLine(o)}</div>`:''}
+    ${o.sn?`<div class="sysn">⚠ ${esc(o.sn)}</div>`:''}
+    <div style="display:grid;grid-template-columns:110px 1fr;gap:10px"><div><label for="edw">Trọng số</label><input id="edw" type="number" min="0" max="10" value="${c.w}"></div><div><label for="edn">Ghi chú cập nhật</label><textarea id="edn" maxlength="300" placeholder="Tiến độ, người phụ trách, vướng mắc…">${esc(c.note)}</textarea></div></div>
+    <div><label>Ảnh chụp màn hình</label><div class="shotbox" id="shotbox">${shotBoxHTML(o)}</div></div>
+    <label class="tgl"><input type="checkbox" id="edx" ${c.ex?'checked':''}> Loại khỏi phạm vi (không tính vào tỷ lệ hoàn thành)</label>
+    <details class="more"><summary>Sửa nội dung hạng mục</summary>${contentFields(o)}</details></div>
+    <div class="ed-f"><span class="hint">${c.at?'Cập nhật: '+new Date(c.at).toLocaleString('vi-VN'):'Trạng thái theo căn cứ ban đầu'}</span><span style="display:flex;gap:8px"><button class="btn del" data-del>Xóa mục</button><button class="btn" data-close>Đóng</button><button class="btn pri" data-save>Lưu</button></span></div>`;
+  const db_=ed.querySelector('[data-del]');db_.onclick=()=>{if(db_.dataset.arm){deleteItem(id);closeEd();}else{db_.dataset.arm=1;db_.textContent='Bấm lần nữa để xóa';}};
+  ed.querySelectorAll('.seg button').forEach(b=>b.onclick=()=>{EDIT.st=+b.dataset.s;ed.querySelectorAll('.seg button').forEach(x=>x.classList.toggle('on',x===b));ed.style.setProperty('--c',STS[EDIT.st][2]);const sd=document.getElementById('stdesc');if(sd)sd.textContent=STDESC[EDIT.st]||'';});
+  ed.querySelector('[data-close]').onclick=closeEd;
+  ed.querySelector('[data-save]').onclick=()=>{const f=readContent();if(!f.t){cfT.focus();return;}
+    const patch={st:EDIT.st,w:Math.max(0,Math.min(10,+edw.value||0)),note:edn.value.slice(0,300),ex:edx.checked};
+    if(o.custom){saveCustom(Object.assign({},CUSTOM.find(x=>x.id===id),f,tierFix(o,f)));}
+    else{const b=BIDX[id];['t','sc','ty','url'].forEach(k=>{if(f[k]!==b[k])patch[k]=f[k];else if(OV[id]&&OV[id][k]!==undefined)patch[k]=b[k];});}
+    setItem(id,patch);closeEd();};
+  bindShot(id);ov.classList.add('on');ed.querySelector('.seg button.on').focus({preventScroll:true});}
+function contentFields(o,ctx){const tier=o?o.tier:ctx.tier,part=o?o.part:ctx.part;
+  return `<div class="cf"><div><label for="cfT">Tên hạng mục *</label><input id="cfT" maxlength="120" value="${o?esc(o.t):''}" placeholder="VD: QT phê duyệt đề nghị thanh toán"></div>
+  <div><label for="cfS">Phạm vi / sản phẩm bàn giao</label><input id="cfS" maxlength="200" value="${o?esc(o.sc):''}"></div>
+  <div class="cf2"><div><label for="cfY">Loại</label><select id="cfY">${Object.keys(TYPES).filter(k=>k!=='ai'||(o&&o.ty==='ai')).map(k=>`<option value="${k}"${(o?o.ty:(part===2?(tier===3?'bc':tier===2?'dwh':'dl'):'moi'))===k?' selected':''}>${TYPES[k]}</option>`).join('')}</select></div>
+  ${part===1&&(!o||o.custom)?`<div><label for="cfP">Bước</label><select id="cfP">${STEPS.map((s,i)=>`<option value="${i}"${(o?o.step:ctx.step)===i?' selected':''}>${s[0]} · ${s[1]}</option>`).join('')}</select></div>`:''}
+  ${part===2&&tier<3?`<div><label for="cfB">Nhóm</label><select id="cfB">${Object.keys(subsOf(tier)).map(k=>`<option value="${k}"${(o?o.sub:'A')===k?' selected':''}>${k} · ${subsOf(tier)[k]}</option>`).join('')}</select></div>`:''}</div>
+  <div><label for="cfU">Link kết quả</label><input id="cfU" type="url" maxlength="500" value="${o?esc(o.url):''}" placeholder="https://…"></div></div>`;}
+function readContent(){const g=id=>{const e=document.getElementById(id);return e?e.value.trim():undefined;};const f={t:g('cfT'),sc:g('cfS')||'',ty:g('cfY'),url:g('cfU')||''};const b=g('cfB');if(b!==undefined)f.sub=b;const ps=g('cfP');if(ps!==undefined)f.step=+ps;if(f.url&&!/^https?:\/\//i.test(f.url))f.url='https://'+f.url;return f;}
+const tierFix=(o,f)=>Object.assign({},f.sub!==undefined?{sub:f.sub}:{},f.step!==undefined?{step:f.step}:{});
+function openAdd(ctx){if(READONLY)return;const D=DEPT[ctx.d];EDIT={st:0};
+  const where=ctx.part===1?`Mục tiêu 01 · ${STEPS[ctx.step][0]} ${STEPS[ctx.step][1]}`:`Mục tiêu 02 · ${TIERS[ctx.tier-1].n} · ${TIERS[ctx.tier-1].t}`;
+  ed.style.setProperty('--c','var(--brand)');
+  ed.innerHTML=`<div class="ed-h"><div class="mono">THÊM HẠNG MỤC · ${where}</div><h3>${D[1]}</h3><div class="ed-meta"><span class="dtag" style="background:${D[2]}">${D[0]}</span></div></div>
+   <div class="ed-b">${contentFields(null,ctx)}
+   <div><label>Trạng thái</label><div class="seg">${STO.map(([i,s])=>`<button data-s="${i}" class="${i===0?'on':''}" style="--c:${s[2]};--t:${s[3]}">${s[0]}<small>${s[1]}%</small></button>`).join('')}</div></div>
+   <div style="display:grid;grid-template-columns:110px 1fr;gap:10px"><div><label for="edw">Trọng số</label><input id="edw" type="number" min="0" max="10" value="1"></div><div><label for="edn">Ghi chú</label><textarea id="edn" maxlength="300"></textarea></div></div></div>
+   <div class="ed-f"><span class="hint">Mục mới được tính ngay vào tỷ lệ hoàn thành</span><span style="display:flex;gap:8px"><button class="btn" data-close>Hủy</button><button class="btn pri" data-save>Thêm mục</button></span></div>`;
+  ed.querySelectorAll('.seg button').forEach(b=>b.onclick=()=>{EDIT.st=+b.dataset.s;ed.querySelectorAll('.seg button').forEach(x=>x.classList.toggle('on',x===b));});
+  ed.querySelector('[data-close]').onclick=closeEd;
+  ed.querySelector('[data-save]').onclick=async()=>{const f=readContent();if(!f.t){cfT.focus();cfT.style.borderColor='var(--warn)';return;}
+    const pfx=ctx.part===1?PFX[ctx.d]:TPFX[ctx.tier];
+    const c=Object.assign({id:'c'+Date.now().toString(36)+Math.random().toString(36).slice(2,5),code:nextCode(pfx),part:ctx.part,d:ctx.d,created:new Date().toISOString()},ctx.part===1?{step:f.step??ctx.step}:{tier:ctx.tier,sub:ctx.tier<3?(f.sub||'A'):''},{t:f.t,sc:f.sc,ty:f.ty,url:f.url});
+    const st=EDIT.st,w=Math.max(0,Math.min(10,+edw.value||0)),note=edn.value.slice(0,300);
+    closeEd();await saveCustom(c);setItem(c.id,{st,w,note});};
+  ov.classList.add('on');cfT.focus({preventScroll:true});}
+function shotBoxHTML(o){const sh=shotSrc(cur(o));
+  return `${sh?`<img src="${esc(sh)}" alt="" data-shot="${o.id}">`:'<div class="shot-empty">Chưa có ảnh</div>'}<div class="shot-act"><label class="btn sm up">${sh?'Đổi ảnh':'Tải ảnh lên'}<input type="file" accept="image/*" id="shotIn" hidden></label>${sh?'<button class="btn sm del" data-shotdel>Xóa ảnh</button>':''}<span class="shot-hint">hoặc dán ảnh (Ctrl+V)</span><span class="shot-st" id="shotSt"></span></div>`;}
+function bindShot(id){const b=document.getElementById('shotbox');if(!b)return;const inp=b.querySelector('#shotIn');if(inp)inp.onchange=()=>{if(inp.files[0])uploadShot(id,inp.files[0]);};
+  const d=b.querySelector('[data-shotdel]');if(d)d.onclick=()=>removeShot(id);}
+let ASSETS;async function getAssets(){if(ASSETS!==undefined)return ASSETS;const cl=(window.claude&&typeof window.claude.use==='function')?window.claude:null;ASSETS=cl?await cl.use('assets').catch(()=>null):null;return ASSETS;}
+async function shrink(file,maxW,type,q){try{const bm=await createImageBitmap(file);if(bm.width<=maxW&&type===null)return file;const s=Math.min(1,maxW/bm.width);const cv=document.createElement('canvas');cv.width=Math.round(bm.width*s);cv.height=Math.round(bm.height*s);cv.getContext('2d').drawImage(bm,0,0,cv.width,cv.height);
+  return await new Promise(r=>cv.toBlob(b=>r(b||file),type||'image/webp',q||.88));}catch(e){return file;}}
+async function uploadShot(id,file){if(READONLY)return;const st=document.getElementById('shotSt');const say=m=>{if(st)st.textContent=m;};
+  if(!file.type.startsWith('image/')){say('Chỉ nhận file ảnh');return;}say('Đang tải…');
+  const a=await getAssets();
+  try{if(a){const blob=await shrink(file,2000,null);const r=await a.upload(blob);const old=cur(IDX[id]).img;await setItem(id,{img:r.id,imgData:null});if(old)a.delete(old).catch(()=>{});}
+    else if(MODE==='local'){const blob=await shrink(file,1280,'image/webp',.8);const data=await new Promise(r=>{const fr=new FileReader();fr.onload=()=>r(fr.result);fr.readAsDataURL(blob);});await setItem(id,{imgData:data,img:null});}
+    else{say('Bạn không có quyền tải ảnh lên trang này');return;}
+    const b=document.getElementById('shotbox');if(b&&EDIT&&EDIT.id===id){b.innerHTML=shotBoxHTML(IDX[id]);bindShot(id);}}
+  catch(e){say(e&&e.code==='quota_exceeded'?'Hết dung lượng lưu ảnh':'Tải ảnh không thành công, thử lại');}}
+async function removeShot(id){const c=cur(IDX[id]);const a=await getAssets();await setItem(id,{img:null,imgData:null});if(c.img&&a)a.delete(c.img).catch(()=>{});
+  const b=document.getElementById('shotbox');if(b){b.innerHTML=shotBoxHTML(IDX[id]);bindShot(id);}}
+document.addEventListener('paste',e=>{if(!EDIT||!EDIT.id||!ov.classList.contains('on'))return;const f=[...(e.clipboardData||{}).files||[]].find(x=>x.type.startsWith('image/'));if(f){e.preventDefault();uploadShot(EDIT.id,f);}});
+function openShot(id){const o=IDX[id];const sh=o&&shotSrc(cur(o));if(!sh)return;lb.innerHTML=`<figure><img src="${esc(sh)}" alt=""><figcaption><b>${esc(o.code)}</b> ${esc(o.t)}<button class="btn sm" data-lbclose>Đóng</button></figcaption></figure>`;lb.classList.add('on');}
+function closeEd(){ov.classList.remove('on');EDIT=null;}
+ov.addEventListener('click',e=>{if(e.target===ov)closeEd();});
+document.addEventListener('keydown',e=>{if(e.key==='Escape'){if(lb.classList.contains('on')){lb.classList.remove('on');return;}closeEd();}if(e.key==='Enter'&&e.target.matches&&e.target.matches('.nd'))openEd(e.target.dataset.open);});
+
+/* ============ PERSISTENCE ============ */
+const COL='sow_v2',COLI='sow_v2_custom',CFGDOC='config/main_v2',LK='amecc_sow2';
+function setSync(cls,txt){sync.className='sync '+cls;syncTxt.textContent=txt;}
+function localLoad(){try{OV=JSON.parse(localStorage.getItem(LK+'_ov')||'{}');CUSTOM=JSON.parse(localStorage.getItem(LK+'_custom')||'[]');CFG=Object.assign(CFG,JSON.parse(localStorage.getItem(LK+'_cfg')||'{}'));}catch(e){}}
+function localSave(){try{localStorage.setItem(LK+'_ov',JSON.stringify(OV));localStorage.setItem(LK+'_custom',JSON.stringify(CUSTOM));localStorage.setItem(LK+'_cfg',JSON.stringify(CFG));}catch(e){}}
+async function setItem(id,patch){if(READONLY)return;const v=Object.assign({},OV[id]||{},patch,{at:new Date().toISOString()});OV[id]=v;renderAll();
+  if(MODE==='db'){try{await DB.collection(COL).doc(id).set(v);}catch(e){goRO();}}else localSave();}
+async function saveCfg(){if(READONLY)return;if(MODE==='db'){try{await DB.doc(CFGDOC).set(CFG);}catch(e){goRO();}}else localSave();}
+async function saveCustom(c){const i=CUSTOM.findIndex(x=>x.id===c.id);if(i>=0)CUSTOM[i]=c;else CUSTOM.push(c);renderAll();
+  if(MODE==='db'){try{await DB.collection(COLI).doc(c.id).set(c);}catch(e){goRO();}}else localSave();}
+async function deleteItem(id){const o=IDX[id];if(!o||READONLY)return;
+  if(o.custom){CUSTOM=CUSTOM.filter(x=>x.id!==id);delete OV[id];renderAll();
+    if(MODE==='db'){try{await DB.collection(COLI).doc(id).delete();await DB.collection(COL).doc(id).delete();}catch(e){goRO();}}else localSave();}
+  else setItem(id,{del:true});}
+function goRO(){READONLY=true;app.classList.add('ro');ed.classList.add('ro');setSync('ro','Chế độ chỉ xem — bạn không có quyền cập nhật trạng thái trên trang này.');}
+async function initDB(){const cl=(window.claude&&typeof window.claude.use==='function')?window.claude:null;
+  const db=cl?await cl.use('db').catch(()=>null):null;
+  if(!db){localLoad();renderAll();setSync('','Đang lưu cục bộ trên trình duyệt này — thay đổi chưa chia sẻ cho người khác.');return;}
+  DB=db;MODE='db';setSync('ok','Dữ liệu chung — mọi thay đổi được lưu và đồng bộ cho người cùng xem.');
+  db.collection(COLI).onSnapshot(s=>{CUSTOM=s.docs.map(d=>Object.assign({id:d.id},d.data()));renderAll();},()=>{});
+  db.collection(COL).onSnapshot(s=>{const o={};s.docs.forEach(d=>o[d.id]=d.data());OV=o;renderAll();},()=>{});
+  db.doc(CFGDOC).onSnapshot(d=>{if(d.exists){CFG=Object.assign({p1:50,p2:50},d.data());renderOverview();renderMeta();}},()=>{});}
+let dl=null;
+const LIVE_URL='https://claude.ai/artifact/KULmNDB4m8QG9ZDBgKE5Kz';
+async function toDataURL(src){try{const r=await fetch(src);if(!r.ok)return null;const b=await r.blob();return await new Promise(res=>{const fr=new FileReader();fr.onload=()=>res(fr.result);fr.onerror=()=>res(null);fr.readAsDataURL(b);});}catch(e){return null;}}
+async function buildExportHTML(){
+  const curTab=[...document.querySelectorAll('.tab')].find(x=>x.classList.contains('on')).dataset.p,curT2=T2SEL;
+  go('p1');drawWires();const s1=document.getElementById('p1').innerHTML;
+  go('p2');const depts=[];for(const d of T2ROWS){T2SEL=d;renderTiers();depts.push([d,t2body.innerHTML]);}
+  T2SEL=curT2;renderTiers();go('p0');renderOverview();const s0=document.getElementById('p0').innerHTML;go(curTab);
+  const now=new Date();
+  let body=`<header class="head"><div class="head-main"><div class="k">SCOPE OF WORK · 2026</div><h1>Tiến độ dự án AMECC × BASE</h1></div><div class="head-meta"><div><span>Khách hàng</span><b>AMECC</b></div><div><span>Toàn dự án</span><b class="mono">${fmt(overall())}</b></div><div><span>Xuất lúc</span><b class="mono">${now.toLocaleString('vi-VN',{day:'2-digit',month:'2-digit',year:'numeric',hour:'2-digit',minute:'2-digit'})}</b></div></div></header>
+  <div class="xlive">📌 Bản chụp lúc ${now.toLocaleString('vi-VN',{day:'2-digit',month:'2-digit',year:'numeric',hour:'2-digit',minute:'2-digit'})}. Bản cập nhật mới nhất: <a href="${LIVE_URL}" target="_blank" rel="noopener">${LIVE_URL}</a></div>
+  <nav class="tabs xtabs"><button class="tab on" data-x="x0"><span class="mono">00</span>Tổng quan<span class="tp">${fmt(overall())}</span></button><button class="tab" data-x="x1"><span class="mono">01</span>Liên kết quy trình<span class="tp">${fmt(partPct(1))}</span></button><button class="tab" data-x="x2"><span class="mono">02</span>Báo cáo quản trị<span class="tp">${fmt(partPct(2))}</span></button></nav>
+  <section class="xp on" id="x0"><h2 class="xh">00 · Tổng quan</h2>${s0}</section>
+  <section class="xp" id="x1"><h2 class="xh">01 · Liên kết quy trình <span>${fmt(partPct(1))}</span></h2>${s1}</section>
+  <section class="xp" id="x2"><h2 class="xh">02 · Báo cáo quản trị <span>${fmt(partPct(2))}</span></h2>
+    <div class="t2tabs xt2">${depts.map(([d],i)=>`<button class="t2t${i===0?' on':''}" data-xd="${d}" style="--c:${DEPT[d][2]}"><span>${DEPT[d][1]}</span><span class="tp">${fmt(agg(m2(d)))}</span></button>`).join('')}</div>
+    ${depts.map(([d,h],i)=>`<div class="xdp${i===0?' on':''}" id="xd-${d}">${h}</div>`).join('')}</section>`;
+  /* nhúng ảnh */
+  const srcs=[...new Set([...body.matchAll(/src="(\/_blob\/[^"]+)"/g)].map(m=>m[1]))];
+  for(const s of srcs){const du=await toDataURL(s);body=body.split(`src="${s}"`).join(du?`src="${du}"`:'src="" data-missing="1"');}
+  const css=[...document.querySelectorAll('style')].map(s=>s.textContent).join('\n');
+  return `<!DOCTYPE html><html lang="vi"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>AMECC × BASE — Tiến độ dự án (${now.toLocaleDateString('vi-VN')})</title>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+<style>${css}
+.addb,.addh,.lh-add,.btn,#exp,#exph,.hc-st span:last-child,.ratio{display:none!important}
+.xh{font-size:19px;font-weight:700;margin:28px 0 12px;padding-bottom:6px;border-bottom:2px solid var(--brand);display:flex;justify-content:space-between}
+.xh span{font-family:'JetBrains Mono',monospace;color:var(--brand)}
+.xs{margin-bottom:18px}
+.xlive{margin-top:10px;font-size:12.5px;padding:8px 12px;border-radius:8px;background:var(--brandt);color:var(--ink2);border:1px solid var(--rule)}.xlive a{color:var(--brand);font-weight:600;word-break:break-all}.xp,.xdp{display:none}.xp.on,.xdp.on{display:block}
+.xtabs .tab,.xt2 .t2t{display:flex!important}
+@media print{.xp,.xdp{display:block!important}.xtabs,.xt2{display:none!important}.xp+.xp,.xdp+.xdp{page-break-before:always}}
+.nd,.hl,.mx-r,.mx-i,.cc{cursor:default}.shot img{cursor:zoom-in}
+.xlb{position:fixed;inset:0;background:rgba(5,12,28,.85);display:none;align-items:center;justify-content:center;z-index:99;padding:20px}.xlb.on{display:flex}.xlb img{max-width:100%;max-height:100%;border-radius:8px;background:#fff}
+@media print{.fc-scroll,.mxw,.stw{overflow:visible}.xlb{display:none!important}}
+</style></head><body><div class="wrap">${body}</div><div class="xlb" id="xlb"><img alt=""></div>
+<script>document.addEventListener('click',e=>{const g=e.target.closest('[data-go]');if(g){const b=document.querySelector('[data-x=x'+g.dataset.go.slice(1)+']');if(b)b.click();return;}const hd=e.target.closest('[data-hand]');if(hd){const c=document.getElementById('hc-'+hd.dataset.hand);if(c)c.scrollIntoView({behavior:'smooth',block:'center'});return;}const x=e.target.closest('[data-x]');if(x){document.querySelectorAll('[data-x]').forEach(b=>b.classList.toggle('on',b===x));document.querySelectorAll('.xp').forEach(s=>s.classList.toggle('on',s.id===x.dataset.x));window.scrollTo({top:0});return;}
+const xd=e.target.closest('[data-xd]');if(xd){document.querySelectorAll('[data-xd]').forEach(b=>b.classList.toggle('on',b===xd));document.querySelectorAll('.xdp').forEach(s=>s.classList.toggle('on',s.id==='xd-'+xd.dataset.xd));return;}
+const l=document.getElementById('xlb');if(l.classList.contains('on')){l.classList.remove('on');return;}const i=e.target.closest('.shot img,.shotbox img');if(i){l.querySelector('img').src=i.src;l.classList.add('on');}});<\/script></body></html>`;
+}
+async function exportHTML(){const b=document.getElementById('exph');const lbl=b?b.textContent:'';if(b){b.disabled=true;b.textContent='Đang tạo file…';}
+  try{const html=await buildExportHTML();const cl=(window.claude&&typeof window.claude.use==='function')?window.claude:null;
+    if(!dl&&cl)dl=await cl.use('downloads').catch(()=>null);
+    if(!dl){alert('Chức năng tải file không khả dụng ở chế độ xem này.');return;}
+    const d=new Date();const pad=n=>String(n).padStart(2,'0');
+    await dl.save({filename:`AMECC_SOW_tien_do_${d.getFullYear()}${pad(d.getMonth()+1)}${pad(d.getDate())}.html`,data:new Blob([html],{type:'text/html;charset=utf-8'})});}
+  catch(e){}finally{const bb=document.getElementById('exph');if(bb){bb.disabled=false;bb.textContent=lbl||'Xuất HTML (kèm ảnh)';}}}
+async function exportCSV(){
+  const head=['Mục tiêu','Tầng','Tiểu mục','Mã','Hạng mục','Phạm vi','Phòng ban','Loại','Trong phạm vi','Trọng số','Trạng thái','% HT','Căn cứ','Link kết quả','Link hướng dẫn','Ghi chú','Ghi chú cập nhật','Cập nhật lúc'];
+  const rows=ITEMS.map(o=>{const c=cur(o);return[o.part===1?'01 Liên kết quy trình':'02 Báo cáo quản trị',o.tier?TIERS[o.tier-1].n+' · '+TIERS[o.tier-1].t:'',o.sub?SUBS[o.sub]:'',o.code,o.t,o.sc,DEPT[o.d][1],TYPES[o.ty],c.ex?'Không':'Có',c.w,STS[c.st][0],c.ex?'':STS[c.st][1],o.src,o.url,o.guide,o.sn,c.note,c.at||''];});
+  rows.push([],['Mục tiêu 01','','','','','','','','','','',Math.round(partPct(1))],['Mục tiêu 02','','','','','','','','','','',Math.round(partPct(2))],['Toàn dự án','','','','','','','','','','',Math.round(overall())]);
+  const csv='\ufeff'+[head,...rows].map(r=>r.map(v=>`"${String(v??'').replace(/"/g,'""')}"`).join(',')).join('\r\n');
+  const cl=(window.claude&&typeof window.claude.use==='function')?window.claude:null;
+  if(!dl&&cl)dl=await cl.use('downloads').catch(()=>null);
+  if(!dl){alert('Chức năng tải file không khả dụng ở chế độ xem này.');return;}
+  try{await dl.save({filename:'AMECC_SOW_tien_do.csv',data:new Blob([csv],{type:'text/csv;charset=utf-8'})});}catch(e){}
+}
+
+/* ============ NAV ============ */
+function go(p){document.querySelectorAll('.tab').forEach(x=>x.classList.toggle('on',x.dataset.p===p));document.querySelectorAll('.panel').forEach(x=>x.classList.toggle('on',x.id===p));if(p==='p1')requestAnimationFrame(drawWires);if(p==='p2')requestAnimationFrame(drawPipes);}
+document.addEventListener('mouseover',e=>{const pw=document.getElementById('pw');if(!pw||!pw.contains(e.target))return;const c=e.target.closest('[data-open]');const svg=document.getElementById('pipes');if(!svg)return;
+  if(!c){pw.classList.remove('hov');svg.querySelectorAll('.pp.hot').forEach(g=>g.classList.remove('hot'));return;}
+  const id=c.dataset.open;pw.classList.add('hov');svg.querySelectorAll('.pp').forEach(g=>g.classList.toggle('hot',g.dataset.a===id||g.dataset.b===id));});
+document.querySelectorAll('.tab').forEach(t=>t.onclick=()=>go(t.dataset.p));
+document.addEventListener('click',e=>{if(e.target.closest('#lb')){if(e.target.closest('[data-lbclose]')||e.target.id==='lb'||e.target.tagName==='IMG')lb.classList.remove('on');return;}const sh=e.target.closest('[data-shot]');if(sh){openShot(sh.dataset.shot);return;}const tb=e.target.closest('[data-t2]');if(tb){T2SEL=tb.dataset.t2;renderTiers();return;}if(e.target.closest('a'))return;const hl=e.target.closest('[data-hand]');if(hl){const c=document.getElementById('hc-'+hl.dataset.hand);if(c){c.scrollIntoView({behavior:'smooth',block:'center'});c.classList.add('flash');setTimeout(()=>c.classList.remove('flash'),1400);}return;}const ad=e.target.closest('[data-add]');if(ad){openAdd(JSON.parse(ad.dataset.add));return;}const rs=e.target.closest('[data-restore]');if(rs){setItem(rs.dataset.restore,{del:false});return;}const o=e.target.closest('[data-open]');if(o){openEd(o.dataset.open);return;}const g=e.target.closest('[data-go]');if(g){go(g.dataset.go);window.scrollTo({top:0});}});
+let rt;window.addEventListener('resize',()=>{clearTimeout(rt);rt=setTimeout(()=>{drawWires();drawPipes();},120);});
+if(document.fonts&&document.fonts.ready)document.fonts.ready.then(()=>{drawWires();drawPipes();});
+renderAll();initDB();
+</script>
+</body>
+</html>
